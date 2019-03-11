@@ -1,0 +1,108 @@
+﻿{
+  "$id": "1",
+  "$type": "System.Collections.Generic.List`1[[Rhetos.Deployment.InstalledPackage, Rhetos.Deployment.Interfaces]], mscorlib",
+  "$values": [
+    {
+      "$id": "2",
+      "$type": "Rhetos.Deployment.InstalledPackage, Rhetos.Deployment.Interfaces",
+      "Id": "HotelRhetos",
+      "Version": "0.0",
+      "Dependencies": {
+        "$id": "3",
+        "$type": "System.Collections.Generic.List`1[[Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces]], mscorlib",
+        "$values": []
+      },
+      "Folder": "..\\src",
+      "Request": {
+        "$id": "4",
+        "$type": "Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces",
+        "Id": "HotelRhetos",
+        "VersionsRange": null,
+        "Source": "..\\src",
+        "RequestedBy": "configuration file RhetosPackages.config"
+      },
+      "Source": "D:\\Rhetos\\RhetosWorkshop\\HotelRhetos\\src"
+    },
+    {
+      "$id": "5",
+      "$type": "Rhetos.Deployment.InstalledPackage, Rhetos.Deployment.Interfaces",
+      "Id": "Rhetos",
+      "Version": "2.11.0",
+      "Dependencies": {
+        "$id": "6",
+        "$type": "System.Collections.Generic.List`1[[Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces]], mscorlib",
+        "$values": []
+      },
+      "Folder": ".",
+      "Request": {
+        "$id": "7",
+        "$type": "Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces",
+        "Id": "Rhetos",
+        "VersionsRange": "",
+        "Source": "",
+        "RequestedBy": "Rhetos framework"
+      },
+      "Source": "."
+    },
+    {
+      "$id": "8",
+      "$type": "Rhetos.Deployment.InstalledPackage, Rhetos.Deployment.Interfaces",
+      "Id": "Rhetos.CommonConcepts",
+      "Version": "2.11.0",
+      "Dependencies": {
+        "$id": "9",
+        "$type": "System.Collections.Generic.List`1[[Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces]], mscorlib",
+        "$values": [
+          {
+            "$id": "10",
+            "$type": "Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces",
+            "Id": "Rhetos",
+            "VersionsRange": "2.0.0",
+            "Source": null,
+            "RequestedBy": "package Rhetos.CommonConcepts"
+          }
+        ]
+      },
+      "Folder": "PackagesCache\\Rhetos.CommonConcepts.2.11.0",
+      "Request": {
+        "$id": "11",
+        "$type": "Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces",
+        "Id": "Rhetos.CommonConcepts",
+        "VersionsRange": null,
+        "Source": null,
+        "RequestedBy": "configuration file RhetosPackages.config"
+      },
+      "Source": "https://www.nuget.org/api/v2/"
+    },
+    {
+      "$id": "12",
+      "$type": "Rhetos.Deployment.InstalledPackage, Rhetos.Deployment.Interfaces",
+      "Id": "Rhetos.RestGenerator",
+      "Version": "2.5.0",
+      "Dependencies": {
+        "$id": "13",
+        "$type": "System.Collections.Generic.List`1[[Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces]], mscorlib",
+        "$values": [
+          {
+            "$id": "14",
+            "$type": "Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces",
+            "Id": "Rhetos.CommonConcepts",
+            "VersionsRange": "2.0.0",
+            "Source": null,
+            "RequestedBy": "package Rhetos.RestGenerator"
+          }
+        ]
+      },
+      "Folder": "PackagesCache\\Rhetos.RestGenerator.2.5.0",
+      "Request": {
+        "$id": "15",
+        "$type": "Rhetos.Deployment.PackageRequest, Rhetos.Deployment.Interfaces",
+        "Id": "Rhetos.RestGenerator",
+        "VersionsRange": null,
+        "Source": null,
+        "RequestedBy": "configuration file RhetosPackages.config"
+      },
+      "Source": "https://www.nuget.org/api/v2/"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+Module HotelRhetos
+{
+    Entity Hotel
+    {
+        ShortString Name;
+        LongString Address;
+    }
+
+    Entity Room
+    {
+        ShortString Name;
+
+        Reference Hotel;
+        Reference RoomType;
+    }
+
+    Entity RoomType
+    {
+        ShortString Name;
+        Decimal Price;
+    }
+
+    Entity Guest
+    {
+        ShortString FirstName;
+        ShortString LastName;
+        ShortString PhoneNumber;
+        ShortString Email;
+    }
+    
+    Entity Service
+    {
+        ShortString Name;
+        Decimal Price;
+    }
+
+    Entity Reservation
+    {
+        DateTime CheckIn;
+        DateTime CheckOut;
+
+        Reference Guest;
+        Reference Room;
+    }
+
+    Entity Invoice
+    {
+        Decimal TotalAmount;
+        Bool Payed;
+        
+        Reference Reservation;
+    }
+
+    Entity InvoiceItem
+    {
+        Decimal Discount;
+
+        Reference Service;
+        Reference Invoice { Detail; }
+    }
+}
