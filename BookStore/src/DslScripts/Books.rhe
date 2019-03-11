@@ -1,0 +1,15 @@
+Module BookStore
+{
+    Entity Book
+    {
+        ShortString Code { AutoCode; }
+        ShortString Title;
+        Integer NumberOfPages;
+        
+        ItemFilter CommonMisspelling
+            'item => item.Title.Contains("curiousity")';
+        InvalidData CommonMisspelling
+            'It is not allowed to enter misspelled word "curiousity".';
+    }
+
+}

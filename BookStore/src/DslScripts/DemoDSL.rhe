@@ -1,0 +1,21 @@
+Module Demo
+{
+    
+    Entity School
+    {
+        ShortString Name;
+        Reference BelongsTo Demo.Region;
+        ShortString Code
+        {
+            Unique;
+            RegExMatch '\d{5}' 'Must have 5 digits.';
+        }
+    }
+    
+    Entity Region;
+}
+Module Demo { Entity School { ShortString Name; } }
+
+Module Demo { Entity School; ShortString School.Name; }
+
+Module Demo { Entity School; } ShortString Demo.School.Name;
