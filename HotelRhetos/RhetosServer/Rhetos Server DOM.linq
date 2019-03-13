@@ -56,30 +56,28 @@ void Main()
     {
         var context = container.Resolve<Common.ExecutionContext>();
         var repository = context.Repository;
-		
-		var queryRoom = repository.HotelRhetos.Room.Query();
 
-//		// Query data from the `Common.Claim` table:
-//		
-//		var claims = repository.Common.Claim.Query()
-//			.Where(c => c.ClaimResource.StartsWith("Common.") && c.ClaimRight == "New")
-//			.ToSimple(); // Removes ORM navigation properties from the loaded objects.
-//			
-//        claims.ToString().Dump("Common.Claims SQL query");
-//		claims.Dump("Common.Claims items");
-//        
-//        // Add and remove a `Common.Principal`:
-//		
-//        var testUser = new Common.Principal { Name = "Test123", ID = Guid.NewGuid() };
-//        repository.Common.Principal.Insert(new[] { testUser });
-//        repository.Common.Principal.Delete(new[] { testUser });
-//        
-//        // Print logged events for the `Common.Principal`:
-//		
-//        repository.Common.LogReader.Query()
-//            .Where(log => log.TableName == "Common.Principal" && log.ItemId == testUser.ID)
-//            .ToList()
-//            .Dump("Common.Principal log");
+		// Query data from the `Common.Claim` table:
+		
+		var claims = repository.Common.Claim.Query()
+			.Where(c => c.ClaimResource.StartsWith("Common.") && c.ClaimRight == "New")
+			.ToSimple(); // Removes ORM navigation properties from the loaded objects.
+			
+        claims.ToString().Dump("Common.Claims SQL query");
+		claims.Dump("Common.Claims items");
+        
+        // Add and remove a `Common.Principal`:
+		
+        var testUser = new Common.Principal { Name = "Test123", ID = Guid.NewGuid() };
+        repository.Common.Principal.Insert(new[] { testUser });
+        repository.Common.Principal.Delete(new[] { testUser });
+        
+        // Print logged events for the `Common.Principal`:
+		
+        repository.Common.LogReader.Query()
+            .Where(log => log.TableName == "Common.Principal" && log.ItemId == testUser.ID)
+            .ToList()
+            .Dump("Common.Principal log");
 			
 		Console.WriteLine("Done.");
     }
