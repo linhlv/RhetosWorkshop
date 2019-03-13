@@ -2463,3 +2463,1013 @@ Info:
 2019-03-11 17:01:08.3773|TRACE|ClaimGenerator Claims|Inserting claims Common.AddToLog.Execute, Common.AutoCodeCache.Edit, Common.AutoCodeCache.New, Common.AutoCodeCache.Read, Common.AutoCodeCache.Remove, Common.Claim.Edit, Common.Claim.New, Common.Claim.Read, Common.Claim.Remove, Common.ExclusiveLock.Edit, Common.ExclusiveLock.New, Common.ExclusiveLock.Read, Common.ExclusiveLock.Remove, Common.FilterId.Edit, Common.FilterId.New, Common.FilterId.Read, Common.FilterId.Remove, Common.KeepSynchronizedMetadata.Edit, Common.KeepSynchronizedMetadata.New, Common.KeepSynchronizedMetadata.Read, Common.KeepSynchronizedMetadata.Remove, Common.Log.Edit, Common.Log.New, Common.Log.Read, Common.Log.Remove, Common.LogReader.Read, Common.LogRelatedItem.Edit, Common.LogRelatedItem.New, Common.LogRelatedItem.Read, Common.LogRelatedItem.Remove, Common.LogRelatedItemReader.Read, Common.MyClaim.Read, Common.Principal.Edit, Common.Principal.New, Common.Principal.Read, Common.Principal.Remove, Common.PrincipalHasRole.Edit, Common.PrincipalHasRole.New, Common.PrincipalHasRole.Read, Common.PrincipalHasRole.Remove, Common.PrincipalPermission.Edit, Common.PrincipalPermission.New, Common.PrincipalPermission.Read, Common.PrincipalPermission.Remove, Common.RelatedEventsSource.Read, Common.ReleaseLock.Execute, Common.Role.Edit, Common.Role.New, Common.Role.Read, Common.Role.Remove, Common.RoleInheritsRole.Edit, Common.RoleInheritsRole.New, Common.RoleInheritsRole.Read, Common.RoleInheritsRole.Remove, Common.RolePermission.Edit, Common.RolePermission.New, Common.RolePermission.Read, Common.RolePermission.Remove, Common.SetLock.Execute, HotelRhetos.Guest.Edit, HotelRhetos.Guest.New, HotelRhetos.Guest.Read, HotelRhetos.Guest.Remove, HotelRhetos.Hotel.Edit, HotelRhetos.Hotel.New, HotelRhetos.Hotel.Read, HotelRhetos.Hotel.Remove, HotelRhetos.Invoice.Edit, HotelRhetos.Invoice.New, HotelRhetos.Invoice.Read, HotelRhetos.Invoice.Remove, HotelRhetos.InvoiceItem.Edit, HotelRhetos.InvoiceItem.New, HotelRhetos.InvoiceItem.Read, HotelRhetos.InvoiceItem.Remove, HotelRhetos.Reservation.Edit, HotelRhetos.Reservation.New, HotelRhetos.Reservation.Read, HotelRhetos.Reservation.Remove, HotelRhetos.Room.Edit, HotelRhetos.Room.New, HotelRhetos.Room.Read, HotelRhetos.Room.Remove, HotelRhetos.RoomType.Edit, HotelRhetos.RoomType.New, HotelRhetos.RoomType.Read, HotelRhetos.RoomType.Remove, HotelRhetos.Service.Edit, HotelRhetos.Service.New, HotelRhetos.Service.Read, HotelRhetos.Service.Remove.
 2019-03-11 17:01:08.5786|TRACE|DeployPackages|Updated Web.config modification date to restart server.
 2019-03-11 17:01:08.5786|TRACE|DeployPackages|Done.
+2019-03-12 13:34:40.2327|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-12 13:34:40.3087|TRACE|DeployPackages|Getting packages.
+2019-03-12 13:34:40.3637|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-12 13:34:43.6516|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-12 13:34:44.1688|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-12 13:34:44.1927|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-12 13:34:44.7065|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-12 13:34:44.7515|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-12 13:34:44.7515|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-12 13:34:44.7655|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-12 13:34:44.9645|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-12 13:34:44.9695|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-12 13:34:44.9695|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-12 13:34:44.9695|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-12 13:34:45.1784|TRACE|DeployPackages|Loading plugins.
+2019-03-12 13:34:46.0544|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-12 13:34:46.0894|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-12 13:34:46.1944|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-12 13:34:46.3174|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Invalid DSL script syntax. At line 58, column 40, file 'D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\DataModel.rhe',
+after: "...Entity InvoiceItem { Decimal Discount; Reference Service { Required; }",
+before: "; Reference Invoice { Detail; } UniqueMultiple 'Invoice Service'; } }".
+   at Rhetos.Dsl.DslParser.ParseNextConcept(TokenReader tokenReader, Stack`1 context, MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 166
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 104
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-12 13:35:16.1834|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-12 13:35:16.2344|TRACE|DeployPackages|Getting packages.
+2019-03-12 13:35:16.2544|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-12 13:35:19.2867|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-12 13:35:19.6678|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-12 13:35:19.6908|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-12 13:35:20.1660|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-12 13:35:20.2010|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-12 13:35:20.2080|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-12 13:35:20.2080|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-12 13:35:20.2570|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-12 13:35:20.2570|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-12 13:35:20.2660|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-12 13:35:20.2660|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-12 13:35:20.4060|TRACE|DeployPackages|Loading plugins.
+2019-03-12 13:35:20.8701|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-12 13:35:20.8951|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-12 13:35:20.9371|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-12 13:35:21.2231|TRACE|DeployPackages|Application model has 587 statements.
+2019-03-12 13:35:21.2231|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-12 13:35:21.3951|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Model.dll.
+2019-03-12 13:35:21.4471|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-12 13:35:21.5021|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-12 13:35:21.8121|TRACE|DeployPackages|Generated 160 types.
+2019-03-12 13:35:21.8121|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-12 13:35:21.8451|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-12 13:35:21.9512|TRACE|AssemblyGenerator|Restoring assembly from cache: RestService.dll.
+2019-03-12 13:35:21.9722|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-12 13:35:22.0081|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-12 13:35:22.0411|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-12 13:35:22.0491|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-12 13:35:22.0911|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-12 13:35:22.0971|TRACE|DeployPackages|Upgrading database.
+2019-03-12 13:35:22.3312|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-12 13:35:22.3432|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo HotelRhetos.InvoiceItem.'Invoice Service'/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=B39D485A-455C-4244-B3CE-6890CA697E1F.
+2019-03-12 13:35:22.3432|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo HotelRhetos.Hotel.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=325E3E54-FCB5-4187-BA2E-AB45F084F97D.
+2019-03-12 13:35:22.3612|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo HotelRhetos.Room.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=10211689-7DF3-436B-9C9D-F5055AFD9C67.
+2019-03-12 13:35:22.3612|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo HotelRhetos.RoomType.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=BC6C67E2-EC6D-46D0-927F-4C2112DCE4CE.
+2019-03-12 13:35:22.3612|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo HotelRhetos.Service.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=1D10D9FA-1C75-419E-A959-7B38B6C1D206.
+2019-03-12 13:35:22.3752|INFO|DeployPackages|DatabaseGenerator creating 5 concept applications.
+2019-03-12 13:35:22.3942|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-12 13:35:22.4082|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-12 13:35:22.4082|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-12 13:35:22.4292|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-03-12 13:35:22.4372|TRACE|DeployPackages|Loading generated plugins.
+2019-03-12 13:35:22.5233|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-12 13:35:22.8003|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-12 13:35:22.8773|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-12 13:35:22.8773|TRACE|DeployPackages|Done.
+2019-03-13 10:01:37.7780|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 10:01:37.8520|TRACE|DeployPackages|Getting packages.
+2019-03-13 10:01:37.9080|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 10:01:41.1069|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 10:01:41.6675|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 10:01:41.6905|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 10:01:42.4368|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 10:01:42.4888|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 10:01:42.4888|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 10:01:42.5008|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 10:01:47.0521|ERROR|DeployPackages|System.UnauthorizedAccessException: Access to the path 'D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\bin\Plugins\Rhetos.DatabaseGenerator.DefaultConcepts.dll' is denied.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at Rhetos.Utilities.FilesUtility.<>c__DisplayClass9_0.<SafeDeleteFile>b__0() in C:\My Projects\Rhetos\Source\Rhetos.Utilities\FilesUtility.cs:line 154
+   at Rhetos.Utilities.FilesUtility.Retry(Action action, Func`1 actionName) in C:\My Projects\Rhetos\Source\Rhetos.Utilities\FilesUtility.cs:line 53
+   at Rhetos.Utilities.FilesUtility.SafeDeleteFile(String path) in C:\My Projects\Rhetos\Source\Rhetos.Utilities\FilesUtility.cs:line 154
+   at Rhetos.Utilities.FilesUtility.EmptyDirectory(String path) in C:\My Projects\Rhetos\Source\Rhetos.Utilities\FilesUtility.cs:line 111
+   at Rhetos.Utilities.FileSyncer.UpdateDestination(Boolean deleteSource) in C:\My Projects\Rhetos\Source\Rhetos.Utilities\FileSyncer.cs:line 119
+   at Rhetos.Deployment.PackageDownloader.GetPackages() in C:\My Projects\Rhetos\Source\Rhetos.Deployment\PackageDownloader.cs:line 98
+   at DeployPackages.Program.DownloadPackages(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 157
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 69
+2019-03-13 10:10:07.1071|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 10:10:07.1581|TRACE|DeployPackages|Getting packages.
+2019-03-13 10:10:07.1741|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 10:10:10.4817|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 10:10:10.8600|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 10:10:10.8840|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 10:10:11.4130|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 10:10:11.4680|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 10:10:11.4680|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 10:10:11.4680|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 10:10:11.6750|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 10:10:11.6750|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 10:10:11.6750|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 10:10:11.6890|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 10:10:11.8796|TRACE|DeployPackages|Loading plugins.
+2019-03-13 10:10:12.7186|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 10:10:12.7616|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 10:10:12.8397|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 10:10:12.9637|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Invalid DSL script syntax. At line 6, column 41, file 'D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\DataModel.rhe',
+after: "...Required; MinValue 1; MaxValue 150; } LongString Address { Required; }",
+before: "; } Entity Room { ShortString Name { Unique; Required; MinValue 1; ...".
+   at Rhetos.Dsl.DslParser.ParseNextConcept(TokenReader tokenReader, Stack`1 context, MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 166
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 104
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-13 10:10:46.5393|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 10:10:46.5923|TRACE|DeployPackages|Getting packages.
+2019-03-13 10:10:46.6083|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 10:10:49.7649|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 10:10:50.1349|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 10:10:50.1579|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 10:10:50.6821|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 10:10:50.7401|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 10:10:50.7401|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 10:10:50.7541|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 10:10:50.7951|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 10:10:50.7991|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 10:10:50.7991|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 10:10:50.7991|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 10:10:50.9431|TRACE|DeployPackages|Loading plugins.
+2019-03-13 10:10:51.4071|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 10:10:51.4371|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 10:10:51.5101|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 10:10:51.6251|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Invalid DSL script syntax. At line 25, column 70, file 'D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\DataModel.rhe',
+after: "... Guest { ShortString FirstName { Required; MinValue 1; MaxValue 150; }",
+before: "; ShortString LastName; ShortString PhoneNumber { RegExMatch "^[+]*...".
+   at Rhetos.Dsl.DslParser.ParseNextConcept(TokenReader tokenReader, Stack`1 context, MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 166
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 104
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-13 10:11:28.5902|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 10:11:28.6472|TRACE|DeployPackages|Getting packages.
+2019-03-13 10:11:28.6682|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 10:11:31.5969|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 10:11:31.9769|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 10:11:32.0009|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 10:11:32.5457|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 10:11:32.5717|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 10:11:32.5767|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 10:11:32.5767|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 10:11:32.6207|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 10:11:32.6258|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 10:11:32.6258|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 10:11:32.6258|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 10:11:32.7787|TRACE|DeployPackages|Loading plugins.
+2019-03-13 10:11:33.2947|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 10:11:33.3247|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 10:11:33.4117|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 10:11:33.5777|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Invalid DSL script syntax. At line 25, column 70, file 'D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\DataModel.rhe',
+after: "... Guest { ShortString FirstName { Required; MinValue 1; MaxValue 150; }",
+before: "; ShortString LastName; ShortString PhoneNumber { RegExMatch "^[+]*...".
+   at Rhetos.Dsl.DslParser.ParseNextConcept(TokenReader tokenReader, Stack`1 context, MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 166
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 104
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-13 10:11:59.1641|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 10:11:59.2181|TRACE|DeployPackages|Getting packages.
+2019-03-13 10:11:59.2341|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 10:12:02.3642|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 10:12:02.7774|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 10:12:02.8454|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 10:12:03.4310|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 10:12:03.4850|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 10:12:03.4850|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 10:12:03.5050|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 10:12:03.5630|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 10:12:03.5630|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 10:12:03.5630|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 10:12:03.5790|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 10:12:03.7430|TRACE|DeployPackages|Loading plugins.
+2019-03-13 10:12:04.3130|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 10:12:04.3400|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 10:12:04.4234|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 10:12:04.6594|ERROR|DeployPackages|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at Rhetos.Dsl.DefaultConcepts.MaxValueInfo.CreateNewConcepts(IEnumerable`1 existingConcepts) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\SimpleBusinessLogic\MaxValueInfo.cs:line 41
+   at Rhetos.Dsl.DslModel.<>c.<ListMacroEvaluators>b__27_1(IConceptInfo conceptInfo, IDslModel dslContainer) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 268
+   at Rhetos.Dsl.DslModel.ExpandMacroConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 182
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 116
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+2019-03-13 11:10:31.4461|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 11:10:31.4991|TRACE|DeployPackages|Getting packages.
+2019-03-13 11:10:31.5191|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:10:34.6307|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:10:35.0108|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 11:10:35.0328|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:10:35.5975|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:10:35.6245|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 11:10:35.6245|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 11:10:35.6245|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 11:10:35.6735|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 11:10:35.6735|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 11:10:35.6735|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 11:10:35.6875|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 11:10:35.8235|TRACE|DeployPackages|Loading plugins.
+2019-03-13 11:10:36.3125|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 11:10:36.3435|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 11:10:36.4366|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 11:10:36.6266|ERROR|DeployPackages|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at Rhetos.Dsl.DefaultConcepts.MaxValueInfo.CreateNewConcepts(IEnumerable`1 existingConcepts) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\SimpleBusinessLogic\MaxValueInfo.cs:line 41
+   at Rhetos.Dsl.DslModel.<>c.<ListMacroEvaluators>b__27_1(IConceptInfo conceptInfo, IDslModel dslContainer) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 268
+   at Rhetos.Dsl.DslModel.ExpandMacroConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 182
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 116
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+2019-03-13 11:12:13.0900|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 11:12:13.1430|TRACE|DeployPackages|Getting packages.
+2019-03-13 11:12:13.1590|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:12:16.1206|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:12:16.5733|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 11:12:16.5953|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:12:17.0962|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:12:17.1232|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 11:12:17.1282|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 11:12:17.1395|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 11:12:17.1772|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 11:12:17.1772|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 11:12:17.1862|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 11:12:17.1862|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 11:12:17.3422|TRACE|DeployPackages|Loading plugins.
+2019-03-13 11:12:17.8232|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 11:12:17.8522|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 11:12:17.9582|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 11:12:18.1562|ERROR|DeployPackages|System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at Rhetos.Dsl.DefaultConcepts.MaxValueInfo.CreateNewConcepts(IEnumerable`1 existingConcepts) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\SimpleBusinessLogic\MaxValueInfo.cs:line 41
+   at Rhetos.Dsl.DslModel.<>c.<ListMacroEvaluators>b__27_1(IConceptInfo conceptInfo, IDslModel dslContainer) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 268
+   at Rhetos.Dsl.DslModel.ExpandMacroConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 182
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 116
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+2019-03-13 11:12:51.0761|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 11:12:51.1431|TRACE|DeployPackages|Getting packages.
+2019-03-13 11:12:51.1581|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:12:54.2009|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:12:54.6024|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 11:12:54.6254|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:12:55.1402|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:12:55.1662|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 11:12:55.1712|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 11:12:55.1862|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 11:12:55.2242|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 11:12:55.2242|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 11:12:55.2332|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 11:12:55.2332|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 11:12:55.3702|TRACE|DeployPackages|Loading plugins.
+2019-03-13 11:12:55.8292|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 11:12:55.8562|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 11:12:55.9674|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 11:12:56.2634|TRACE|DeployPackages|Application model has 589 statements.
+2019-03-13 11:12:56.2684|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-13 11:12:56.4065|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-13 11:12:56.5805|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-13 11:12:56.6345|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-13 11:12:56.9175|TRACE|DeployPackages|Generated 168 types.
+2019-03-13 11:12:56.9255|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-13 11:12:56.9365|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-13 11:12:57.0305|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-03-13 11:12:57.2786|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-03-13 11:12:57.2856|INFO|AssemblyGenerator|88 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 257, column 34, file 'd:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\bin\Generated\RestService.cs'.
+2019-03-13 11:12:57.2856|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-13 11:12:57.4926|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-13 11:12:57.5416|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-13 11:12:57.5486|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-13 11:12:57.5776|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-13 11:12:57.5776|TRACE|DeployPackages|Upgrading database.
+2019-03-13 11:12:57.8186|TRACE|DatabaseGenerator Concepts|Removing SqlIndexMultipleInfo HotelRhetos.RoomType.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=BC6C67E2-EC6D-46D0-927F-4C2112DCE4CE.
+2019-03-13 11:12:57.8286|TRACE|DatabaseGenerator Concepts|Removing SqlIndexMultipleInfo HotelRhetos.Room.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=10211689-7DF3-436B-9C9D-F5055AFD9C67.
+2019-03-13 11:12:57.8286|TRACE|DatabaseGenerator Concepts|Removing SqlIndexMultipleInfo HotelRhetos.Hotel.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=325E3E54-FCB5-4187-BA2E-AB45F084F97D.
+2019-03-13 11:12:57.8286|INFO|DeployPackages|DatabaseGenerator removing 3 concept applications.
+2019-03-13 11:12:57.8446|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
+2019-03-13 11:12:57.8786|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-13 11:12:57.8936|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-13 11:12:57.8936|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-13 11:12:57.9146|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-03-13 11:12:57.9226|TRACE|DeployPackages|Loading generated plugins.
+2019-03-13 11:12:58.0086|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-13 11:12:58.1736|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-13 11:12:58.2546|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-13 11:12:58.2696|TRACE|DeployPackages|Done.
+2019-03-13 11:15:05.4119|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 11:15:05.4729|TRACE|DeployPackages|Getting packages.
+2019-03-13 11:15:05.4929|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:15:08.4881|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:15:08.8647|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 11:15:08.8877|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:15:09.4008|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:15:09.4358|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 11:15:09.4408|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 11:15:09.4408|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 11:15:09.4848|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 11:15:09.4848|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 11:15:09.4848|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 11:15:09.4848|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 11:15:09.6328|TRACE|DeployPackages|Loading plugins.
+2019-03-13 11:15:10.0978|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 11:15:10.1298|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 11:15:10.2088|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 11:15:10.4928|TRACE|DeployPackages|Application model has 661 statements.
+2019-03-13 11:15:10.4928|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-13 11:15:10.5828|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-13 11:15:10.7348|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-13 11:15:10.8008|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-13 11:15:11.0808|TRACE|DeployPackages|Generated 180 types.
+2019-03-13 11:15:11.0808|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-13 11:15:11.1038|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-13 11:15:11.1578|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-03-13 11:15:11.3768|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-03-13 11:15:11.3768|INFO|AssemblyGenerator|88 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 261, column 34, file 'd:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\bin\Generated\RestService.cs'.
+2019-03-13 11:15:11.3898|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-13 11:15:11.5938|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-13 11:15:11.6278|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-13 11:15:11.6278|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-13 11:15:11.6618|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-13 11:15:11.6618|TRACE|DeployPackages|Upgrading database.
+2019-03-13 11:15:11.7818|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-13 11:15:11.7978|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo HotelRhetos.Hotel.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=B379A68A-A076-44E8-9A0B-649E621CF387.
+2019-03-13 11:15:11.8158|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo HotelRhetos.Room.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=6AC76F00-A6FB-4F06-B2DE-4DB5AFB8353A.
+2019-03-13 11:15:11.8158|TRACE|DatabaseGenerator Concepts|Creating SqlIndexMultipleInfo HotelRhetos.RoomType.Name/Rhetos.DatabaseGenerator.DefaultConcepts.SqlIndexMultipleDatabaseDefinition, ID=EBC1DF2C-961B-46C7-8F6A-180F47D6E6EB.
+2019-03-13 11:15:11.8158|INFO|DeployPackages|DatabaseGenerator creating 3 concept applications.
+2019-03-13 11:15:11.8528|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-13 11:15:11.8668|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-13 11:15:11.8738|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-13 11:15:11.8738|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-03-13 11:15:11.8948|TRACE|DeployPackages|Loading generated plugins.
+2019-03-13 11:15:11.9858|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-13 11:15:12.1568|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-13 11:15:12.2338|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-13 11:15:12.2338|TRACE|DeployPackages|Done.
+2019-03-13 11:58:30.1834|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 11:58:30.2682|TRACE|DeployPackages|Getting packages.
+2019-03-13 11:58:30.2843|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:58:33.4091|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:58:33.8636|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 11:58:33.8793|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:58:34.3992|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:58:34.4193|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 11:58:34.4364|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 11:58:34.4364|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 11:58:34.4646|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 11:58:34.4815|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 11:58:34.4865|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 11:58:34.4865|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 11:58:34.6185|TRACE|DeployPackages|Loading plugins.
+2019-03-13 11:58:35.0718|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 11:58:35.1113|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 11:58:35.2132|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 11:58:35.3261|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Unrecognized concept keyword 'AutodetecSqlDependencies'. At line 20, column 9, file 'D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\Room.rhe',
+after: "...UP BY r.ID " { Extends HotelRhetos.Room; Integer NumberOfReservations;",
+before: "AutodetecSqlDependencies; } }".
+   at Rhetos.Dsl.DslParser.ParseNextConcept(TokenReader tokenReader, Stack`1 context, MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 163
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 104
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-13 11:59:38.6017|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 11:59:38.6574|TRACE|DeployPackages|Getting packages.
+2019-03-13 11:59:38.6574|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:59:41.7129|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:59:42.1350|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 11:59:42.1656|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 11:59:42.7440|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 11:59:42.7752|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 11:59:42.7752|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 11:59:42.7752|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 11:59:42.8235|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 11:59:42.8235|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 11:59:42.8235|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 11:59:42.8391|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 11:59:42.9618|TRACE|DeployPackages|Loading plugins.
+2019-03-13 11:59:43.4245|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 11:59:43.4472|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 11:59:43.5341|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 11:59:43.8278|TRACE|DeployPackages|Application model has 670 statements.
+2019-03-13 11:59:43.8278|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-13 11:59:43.9367|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-13 11:59:44.1017|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Orm.dll.
+2019-03-13 11:59:44.3107|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-13 11:59:44.6139|TRACE|DeployPackages|Generated 183 types.
+2019-03-13 11:59:44.6139|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-13 11:59:44.6295|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-13 11:59:44.6798|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-03-13 11:59:44.9351|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-03-13 11:59:44.9351|INFO|AssemblyGenerator|89 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 264, column 34, file 'd:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\bin\Generated\RestService.cs'.
+2019-03-13 11:59:44.9476|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-13 11:59:45.1518|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-13 11:59:45.1681|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-13 11:59:45.1838|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-13 11:59:45.1994|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-13 11:59:45.2150|TRACE|DeployPackages|Upgrading database.
+2019-03-13 11:59:45.3355|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-13 11:59:45.3673|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo HotelRhetos.RomNumberOfReservations/Rhetos.DatabaseGenerator.DefaultConcepts.SqlQueryableDatabaseDefinition, ID=5ED9DBEC-0FCB-4D2D-8628-3F21F6216417.
+2019-03-13 11:59:45.3673|INFO|DeployPackages|DatabaseGenerator creating 1 concept applications.
+2019-03-13 11:59:45.3830|ERROR|MsSqlExecuter|Unable to execute SQL query:
+CREATE VIEW HotelRhetos.RomNumberOfReservations AS 
+        SELECT
+            r.ID,
+            NumberOfReservations = COUNT(rs.ID)
+        FROM
+            HotelRhetos.Room r
+            LEFT JOIn HotelRhetos.Reservations rs ON rs.RoomID = r.ID
+        GROUP BY
+            r.ID
+2019-03-13 11:59:45.4058|ERROR|MsSqlExecuter|SqlException has occurred:
+Msg 208, Level 16, State 1, Procedure RomNumberOfReservations, Line 7
+Invalid object name 'HotelRhetos.Reservations'.
+ System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'HotelRhetos.Reservations'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Rhetos.Persistence.MsSqlExecuter.<>c__DisplayClass8_0.<ExecuteSql>b__1(DbCommand com) in C:\My Projects\Rhetos\Source\Rhetos.Persistence\MsSqlExecuter.cs:line 95
+   at Rhetos.Persistence.MsSqlExecuter.SafeExecuteCommand(Action`1 action, Boolean useTransaction) in C:\My Projects\Rhetos\Source\Rhetos.Persistence\MsSqlExecuter.cs:line 218
+ClientConnectionId:62d0c80d-9c87-4fef-80b0-f41ee9759d06
+Error Number:208,State:1,Class:16
+2019-03-13 11:59:45.4058|ERROR|DeployPackages|Rhetos.FrameworkException: SqlException has occurred:
+Msg 208, Level 16, State 1, Procedure RomNumberOfReservations, Line 7
+Invalid object name 'HotelRhetos.Reservations'.
+ ---> System.Data.SqlClient.SqlException: Invalid object name 'HotelRhetos.Reservations'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Rhetos.Persistence.MsSqlExecuter.<>c__DisplayClass8_0.<ExecuteSql>b__1(DbCommand com) in C:\My Projects\Rhetos\Source\Rhetos.Persistence\MsSqlExecuter.cs:line 95
+   at Rhetos.Persistence.MsSqlExecuter.SafeExecuteCommand(Action`1 action, Boolean useTransaction) in C:\My Projects\Rhetos\Source\Rhetos.Persistence\MsSqlExecuter.cs:line 218
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at Rhetos.Persistence.MsSqlExecuter.SafeExecuteCommand(Action`1 action, Boolean useTransaction) in C:\My Projects\Rhetos\Source\Rhetos.Persistence\MsSqlExecuter.cs:line 229
+   at Rhetos.Persistence.MsSqlExecuter.ExecuteSql(IEnumerable`1 commands, Boolean useTransaction, Action`1 beforeExecute, Action`1 afterExecute) in C:\My Projects\Rhetos\Source\Rhetos.Persistence\MsSqlExecuter.cs:line 74
+   at Rhetos.Utilities.SqlTransactionBatches.Execute(IEnumerable`1 sqlScripts) in C:\My Projects\Rhetos\Source\Rhetos.Utilities\SqlTransactionBatches.cs:line 120
+   at Rhetos.DatabaseGenerator.DatabaseGenerator.ApplyChangesToDatabase(List`1 oldApplications, List`1 newApplications, List`1 toBeRemoved, List`1 toBeInserted) in C:\My Projects\Rhetos\Source\Rhetos.DatabaseGenerator\DatabaseGenerator.cs:line 532
+   at Rhetos.DatabaseGenerator.DatabaseGenerator.UpdateDatabaseStructure() in C:\My Projects\Rhetos\Source\Rhetos.DatabaseGenerator\DatabaseGenerator.cs:line 99
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 115
+
+Exception rethrown at [0]: 
+   at Rhetos.Utilities.ExceptionsUtility.Rethrow(Exception exception) in C:\My Projects\Rhetos\Source\Rhetos.Utilities\ExceptionsUtility.cs:line 58
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 127
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-13 12:00:22.5526|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 12:00:22.6187|TRACE|DeployPackages|Getting packages.
+2019-03-13 12:00:22.6533|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 12:00:25.6567|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 12:00:26.0315|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 12:00:26.0555|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 12:00:26.5875|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 12:00:26.6032|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 12:00:26.6188|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 12:00:26.6188|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 12:00:26.6667|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 12:00:26.6707|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 12:00:26.6707|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 12:00:26.6864|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 12:00:26.8208|TRACE|DeployPackages|Loading plugins.
+2019-03-13 12:00:27.2805|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 12:00:27.3538|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 12:00:28.6353|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 12:00:28.9193|TRACE|DeployPackages|Application model has 675 statements.
+2019-03-13 12:00:28.9193|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-13 12:00:29.0158|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Model.dll.
+2019-03-13 12:00:29.0518|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-13 12:00:29.1041|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Repositories.dll.
+2019-03-13 12:00:29.1354|TRACE|DeployPackages|Generated 183 types.
+2019-03-13 12:00:29.1552|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-13 12:00:29.1552|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-13 12:00:29.2041|TRACE|AssemblyGenerator|Restoring assembly from cache: RestService.dll.
+2019-03-13 12:00:29.2353|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-13 12:00:29.2689|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-13 12:00:29.3682|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-13 12:00:29.3682|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-13 12:00:29.3888|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-13 12:00:29.4048|TRACE|DeployPackages|Upgrading database.
+2019-03-13 12:00:32.3891|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-13 12:00:32.4109|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo HotelRhetos.RomNumberOfReservations/Rhetos.DatabaseGenerator.DefaultConcepts.SqlQueryableDatabaseDefinition, ID=4808FF99-46E8-4229-B482-34A00F168568.
+2019-03-13 12:00:32.4109|INFO|DeployPackages|DatabaseGenerator creating 1 concept applications.
+2019-03-13 12:00:32.4348|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-13 12:00:32.4504|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-13 12:00:32.4661|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-13 12:00:32.4860|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-03-13 12:00:32.4860|TRACE|DeployPackages|Loading generated plugins.
+2019-03-13 12:00:32.5859|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-13 12:00:32.8269|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-13 12:00:32.8894|TRACE|ClaimGenerator Claims|Inserting claims HotelRhetos.RomNumberOfReservations.Read.
+2019-03-13 12:00:32.9674|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-13 12:00:32.9863|TRACE|DeployPackages|Done.
+2019-03-13 13:24:51.2830|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 13:24:51.3440|TRACE|DeployPackages|Getting packages.
+2019-03-13 13:24:51.3634|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 13:24:54.4797|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 13:24:54.8710|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 13:24:54.8940|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 13:24:55.4335|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 13:24:55.4645|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 13:24:55.4685|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 13:24:55.4685|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 13:24:55.5124|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 13:24:55.5174|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 13:24:55.5174|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 13:24:55.5174|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 13:24:55.6585|TRACE|DeployPackages|Loading plugins.
+2019-03-13 13:24:56.1175|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 13:24:56.1575|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 13:24:56.2307|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 13:24:56.5386|TRACE|DeployPackages|Application model has 675 statements.
+2019-03-13 13:24:56.5386|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-13 13:24:56.6296|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-13 13:24:56.7806|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Orm.dll.
+2019-03-13 13:24:56.9897|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-13 13:24:57.2717|TRACE|DeployPackages|Generated 183 types.
+2019-03-13 13:24:57.2806|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-13 13:24:57.2966|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-13 13:24:57.3516|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-03-13 13:24:57.5837|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-03-13 13:24:57.5837|INFO|AssemblyGenerator|89 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 264, column 34, file 'd:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\bin\Generated\RestService.cs'.
+2019-03-13 13:24:57.5967|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-13 13:24:57.8067|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-13 13:24:57.8467|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 7 remaining.
+2019-03-13 13:24:57.8467|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-13 13:24:57.8777|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-13 13:24:57.8777|TRACE|DeployPackages|Upgrading database.
+2019-03-13 13:24:57.9987|TRACE|DatabaseGenerator Concepts|Removing DataStructureInfo HotelRhetos.RomNumberOfReservations/Rhetos.DatabaseGenerator.DefaultConcepts.SqlQueryableDatabaseDefinition, ID=4808FF99-46E8-4229-B482-34A00F168568.
+2019-03-13 13:24:58.0207|TRACE|DatabaseGenerator Concepts|Removing PropertyInfo HotelRhetos.Invoice.Reservation/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=F08F36C1-8E01-4CB3-AFDF-BF703C872537.
+2019-03-13 13:24:58.0207|TRACE|DatabaseGenerator Concepts|Removing PropertyInfo HotelRhetos.Invoice.Reservation/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=BFF2765C-78E8-4557-9B3B-F5C372C8D253.
+2019-03-13 13:24:58.0207|TRACE|DatabaseGenerator Concepts|Removing PropertyInfo HotelRhetos.Reservation.Room/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=1E28AFDA-CCF4-4DDB-82E2-7D622C90E9A1.
+2019-03-13 13:24:58.0347|TRACE|DatabaseGenerator Concepts|Removing PropertyInfo HotelRhetos.Reservation.Room/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=E4BFD09D-E260-4A5E-B6CF-0FA2518FA18F.
+2019-03-13 13:24:58.0347|TRACE|DatabaseGenerator Concepts|Removing PropertyInfo HotelRhetos.Reservation.Guest/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=5D1D5A2F-D404-4FE8-B85F-FD4313915DA1.
+2019-03-13 13:24:58.0347|TRACE|DatabaseGenerator Concepts|Removing PropertyInfo HotelRhetos.Reservation.Guest/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=7F90A0CF-3BC9-401C-BC09-AC71D4BBF258.
+2019-03-13 13:24:58.0487|TRACE|DatabaseGenerator Concepts|Removing PropertyInfo HotelRhetos.Reservation.CheckOut/Rhetos.DatabaseGenerator.DefaultConcepts.DateTimePropertyDatabaseDefinition, ID=45902216-16D1-43F8-929F-0C315D044C21.
+2019-03-13 13:24:58.0487|TRACE|DatabaseGenerator Concepts|Removing PropertyInfo HotelRhetos.Reservation.CheckIn/Rhetos.DatabaseGenerator.DefaultConcepts.DateTimePropertyDatabaseDefinition, ID=F427CC6B-3639-41AA-BEBD-09889F014165.
+2019-03-13 13:24:58.0487|TRACE|DatabaseGenerator Concepts|Removing DataStructureInfo HotelRhetos.Reservation/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=E2AE02B2-3324-44F5-80CB-3B3094BD235E.
+2019-03-13 13:24:58.0617|INFO|DeployPackages|DatabaseGenerator removing 10 concept applications.
+2019-03-13 13:24:58.0617|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo HotelRhetos.Reservations/Rhetos.DatabaseGenerator.DefaultConcepts.EntityDatabaseDefinition, ID=11D3CB93-D6AF-46FF-8250-F03FEDE4C6D8.
+2019-03-13 13:24:58.0817|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo HotelRhetos.Reservations.CheckIn/Rhetos.DatabaseGenerator.DefaultConcepts.DateTimePropertyDatabaseDefinition, ID=66F3E572-15AB-4A45-8121-1943BBD5AE19.
+2019-03-13 13:24:58.0817|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo HotelRhetos.Reservations.CheckOut/Rhetos.DatabaseGenerator.DefaultConcepts.DateTimePropertyDatabaseDefinition, ID=DE6ECDAF-D723-41A7-BB75-24D7613BC91D.
+2019-03-13 13:24:58.0817|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo HotelRhetos.Reservations.Guest/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=FC3530BC-5FF0-480E-9B18-2E01F1E32742.
+2019-03-13 13:24:58.0977|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo HotelRhetos.Reservations.Guest/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=20C2F80E-5F01-471D-B674-E4490EBF25A3.
+2019-03-13 13:24:58.0977|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo HotelRhetos.Reservations.Room/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=B96A2DD4-929F-4C1E-AE3D-1A0DB0145743.
+2019-03-13 13:24:58.0977|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo HotelRhetos.Reservations.Room/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=D24571AA-FA7B-49A4-89AC-0D06D0B98CC9.
+2019-03-13 13:24:58.1097|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo HotelRhetos.Invoice.Reservations/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyDatabaseDefinition, ID=38D9A9D9-19ED-4813-9D60-70B45C8FE9C4.
+2019-03-13 13:24:58.1097|TRACE|DatabaseGenerator Concepts|Creating PropertyInfo HotelRhetos.Invoice.Reservations/Rhetos.DatabaseGenerator.DefaultConcepts.ReferencePropertyConstraintDatabaseDefinition, ID=7794D3A5-7611-4A7C-82FE-A2BEEB588FD5.
+2019-03-13 13:24:58.1097|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo HotelRhetos.RomNumberOfReservations/Rhetos.DatabaseGenerator.DefaultConcepts.SqlQueryableDatabaseDefinition, ID=4808FF99-46E8-4229-B482-34A00F168568.
+2019-03-13 13:24:58.1097|INFO|DeployPackages|DatabaseGenerator creating 10 concept applications.
+2019-03-13 13:24:58.3117|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-13 13:24:58.3117|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 13:24:58.3337|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-13 13:24:58.3497|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-03-13 13:24:58.3587|TRACE|DeployPackages|Loading generated plugins.
+2019-03-13 13:24:58.4587|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-13 13:24:58.6587|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-13 13:24:58.7407|TRACE|ClaimGenerator Claims|Inserting claims HotelRhetos.Reservations.Edit, HotelRhetos.Reservations.New, HotelRhetos.Reservations.Read, HotelRhetos.Reservations.Remove.
+2019-03-13 13:24:58.7407|TRACE|ClaimGenerator Claims|Deleting claims HotelRhetos.Reservation.Edit, HotelRhetos.Reservation.New, HotelRhetos.Reservation.Read, HotelRhetos.Reservation.Remove.
+2019-03-13 13:24:58.8437|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-13 13:24:58.8437|TRACE|DeployPackages|Done.
+2019-03-13 13:39:18.5505|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 13:39:18.6125|TRACE|DeployPackages|Getting packages.
+2019-03-13 13:39:18.6314|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 13:39:21.6794|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 13:39:22.1013|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 13:39:22.1283|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 13:39:22.6439|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 13:39:22.6709|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 13:39:22.6709|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 13:39:22.6709|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 13:39:22.7249|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 13:39:22.7249|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 13:39:22.7340|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 13:39:22.7340|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 13:39:22.8739|TRACE|DeployPackages|Loading plugins.
+2019-03-13 13:39:23.3985|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 13:39:23.4295|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 13:39:23.5247|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 13:39:23.8277|TRACE|DeployPackages|Application model has 675 statements.
+2019-03-13 13:39:23.8277|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-13 13:39:23.9067|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Model.dll.
+2019-03-13 13:39:23.9707|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-13 13:39:24.0327|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Repositories.dll.
+2019-03-13 13:39:24.0627|TRACE|DeployPackages|Generated 183 types.
+2019-03-13 13:39:24.0627|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-13 13:39:24.0947|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-13 13:39:24.1457|TRACE|AssemblyGenerator|Restoring assembly from cache: RestService.dll.
+2019-03-13 13:39:24.1717|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-13 13:39:24.1717|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-13 13:39:24.2167|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 13:39:24.2237|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-13 13:39:24.2537|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-13 13:39:24.2537|TRACE|DeployPackages|Upgrading database.
+2019-03-13 13:39:24.4157|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-13 13:39:24.4227|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
+2019-03-13 13:39:24.4367|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-13 13:39:24.4367|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 13:39:24.4567|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-13 13:39:24.4807|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-03-13 13:39:24.4887|TRACE|DeployPackages|Loading generated plugins.
+2019-03-13 13:39:24.5827|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-13 13:39:24.8637|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-13 13:39:24.9677|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-13 13:39:24.9677|TRACE|DeployPackages|Done.
+2019-03-13 14:08:22.7411|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 14:08:22.8021|TRACE|DeployPackages|Getting packages.
+2019-03-13 14:08:22.8221|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:08:26.0744|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:08:26.4854|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 14:08:26.5074|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:08:27.0201|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:08:27.0561|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 14:08:27.0611|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 14:08:27.0611|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 14:08:27.1081|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 14:08:27.1081|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 14:08:27.1081|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 14:08:27.1081|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 14:08:27.2621|TRACE|DeployPackages|Loading plugins.
+2019-03-13 14:08:27.7531|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 14:08:27.7992|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 14:08:27.8733|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 14:08:27.9784|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Cannot find the extension file referenced in DSL script. At line 3, column 41, file 'D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\Room.rhe',
+after: "Module HotelRhetos { SqlQueryable RomNumberOfReservations",
+before: "<SQL\RomNumberOfReservations.sql> { Extends HotelRhetos.Room; Integ...".
+Looking for files:
+D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\SQL\RomNumberOfReservations.MsSql.sql
+D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\SQL\RomNumberOfReservations (MsSql).sql
+D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\SQL\RomNumberOfReservations.sql
+   at Rhetos.Dsl.TokenizerInternals.LoadFile(String basicFilePath, DslScript dslScript, Int32 begin) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\Tokenizer.cs:line 245
+   at Rhetos.Dsl.TokenizerInternals.ReadExternalText(DslScript dslScript, Int32& end) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\Tokenizer.cs:line 220
+   at Rhetos.Dsl.TokenizerInternals.GetNextToken_ValueType(DslScript dslScript, Int32& position) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\Tokenizer.cs:line 106
+   at Rhetos.Dsl.Tokenizer.ParseTokens() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\Tokenizer.cs:line 64
+   at Rhetos.Dsl.Tokenizer.GetTokens() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\Tokenizer.cs:line 45
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 96
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-13 14:08:57.2269|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 14:08:57.2969|TRACE|DeployPackages|Getting packages.
+2019-03-13 14:08:57.3149|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:09:00.2033|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:09:00.5760|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 14:09:00.5990|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:09:01.0730|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:09:01.1269|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 14:09:01.1269|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 14:09:01.1399|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 14:09:01.1799|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 14:09:01.1799|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 14:09:01.1909|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 14:09:01.1909|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 14:09:01.3349|TRACE|DeployPackages|Loading plugins.
+2019-03-13 14:09:01.7960|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 14:09:01.8250|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 14:09:01.9020|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 14:09:02.0040|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Cannot find the extension file referenced in DSL script. At line 3, column 42, file 'D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\Room.rhe',
+after: "Module HotelRhetos { SqlQueryable RomNumberOfReservations",
+before: "<SQL\RomNumberOfReservations.sql> { Extends HotelRhetos.Room; Integ...".
+Looking for files:
+D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\SQL\RomNumberOfReservations.MsSql.sql
+D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\SQL\RomNumberOfReservations (MsSql).sql
+D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\SQL\RomNumberOfReservations.sql
+   at Rhetos.Dsl.TokenizerInternals.LoadFile(String basicFilePath, DslScript dslScript, Int32 begin) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\Tokenizer.cs:line 245
+   at Rhetos.Dsl.TokenizerInternals.ReadExternalText(DslScript dslScript, Int32& end) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\Tokenizer.cs:line 220
+   at Rhetos.Dsl.TokenizerInternals.GetNextToken_ValueType(DslScript dslScript, Int32& position) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\Tokenizer.cs:line 106
+   at Rhetos.Dsl.Tokenizer.ParseTokens() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\Tokenizer.cs:line 64
+   at Rhetos.Dsl.Tokenizer.GetTokens() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\Tokenizer.cs:line 45
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 96
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-13 14:09:46.8844|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 14:09:46.9394|TRACE|DeployPackages|Getting packages.
+2019-03-13 14:09:46.9564|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:09:50.3611|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:09:50.7248|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 14:09:50.7468|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:09:51.2702|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:09:51.2991|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 14:09:51.2991|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 14:09:51.2991|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 14:09:51.3487|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 14:09:51.3487|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 14:09:51.3487|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 14:09:51.3617|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 14:09:51.4948|TRACE|DeployPackages|Loading plugins.
+2019-03-13 14:09:51.9524|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 14:09:51.9834|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 14:09:52.0623|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 14:09:52.3533|TRACE|DeployPackages|Application model has 675 statements.
+2019-03-13 14:09:52.3583|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-13 14:09:52.4723|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Model.dll.
+2019-03-13 14:09:52.5180|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-13 14:09:52.5700|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Repositories.dll.
+2019-03-13 14:09:52.6090|TRACE|DeployPackages|Generated 183 types.
+2019-03-13 14:09:52.6090|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-13 14:09:52.6290|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-13 14:09:52.6800|TRACE|AssemblyGenerator|Restoring assembly from cache: RestService.dll.
+2019-03-13 14:09:52.7060|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-13 14:09:52.7190|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-13 14:09:52.7601|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 14:09:52.7711|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-13 14:09:52.7942|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-13 14:09:52.8002|TRACE|DeployPackages|Upgrading database.
+2019-03-13 14:09:52.9273|TRACE|DatabaseGenerator Concepts|Removing DataStructureInfo HotelRhetos.RomNumberOfReservations/Rhetos.DatabaseGenerator.DefaultConcepts.SqlQueryableDatabaseDefinition, ID=4808FF99-46E8-4229-B482-34A00F168568.
+2019-03-13 14:09:52.9373|INFO|DeployPackages|DatabaseGenerator removing 1 concept applications.
+2019-03-13 14:09:52.9373|TRACE|DatabaseGenerator Concepts|Creating DataStructureInfo HotelRhetos.RomNumberOfReservations/Rhetos.DatabaseGenerator.DefaultConcepts.SqlQueryableDatabaseDefinition, ID=4808FF99-46E8-4229-B482-34A00F168568.
+2019-03-13 14:09:52.9583|INFO|DeployPackages|DatabaseGenerator creating 1 concept applications.
+2019-03-13 14:09:52.9782|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-13 14:09:52.9928|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 14:09:52.9987|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-13 14:09:53.0158|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-03-13 14:09:53.0158|TRACE|DeployPackages|Loading generated plugins.
+2019-03-13 14:09:53.1278|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-13 14:09:53.4428|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-13 14:09:53.5298|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-13 14:09:53.5298|TRACE|DeployPackages|Done.
+2019-03-13 14:18:03.2440|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 14:18:03.3280|TRACE|DeployPackages|Getting packages.
+2019-03-13 14:18:03.3440|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:18:06.6676|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:18:07.1479|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 14:18:07.1788|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:18:07.7257|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:18:07.7577|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 14:18:07.7577|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 14:18:07.7707|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 14:18:07.8127|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 14:18:07.8127|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 14:18:07.8127|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 14:18:07.8297|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 14:18:07.9877|TRACE|DeployPackages|Loading plugins.
+2019-03-13 14:18:08.4767|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 14:18:08.5027|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 14:18:08.5857|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 14:18:08.7097|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: At line 15, column 5, file 'D:\Rhetos\RhetosWorkshop\HotelRhetos\src\DslScripts\Room.rhe',
+after: "...e RoomGrid HotelRhetos.Room { Take Name; Take 'HotelRhetos.Hotel.Name'",
+before: "} }".
+Previous concept: Take HotelRhetos.RoomGrid.<null>
+Property Browse (BrowseDataStructureInfo) = HotelRhetos.RoomGrid
+Property Name (String) = <null>
+Property Path (String) = HotelRhetos.Hotel.Name
+Expected ";" or "{".
+   at Rhetos.Dsl.DslParser.UpdateContextForNextConcept(TokenReader tokenReader, Stack`1 context, IConceptInfo conceptInfo) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 208
+   at Rhetos.Dsl.DslParser.ExtractConcepts(MultiDictionary`2 conceptParsers) in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 107
+   at Rhetos.Dsl.DslParser.GetConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 54
+   at Rhetos.Dsl.DslParser.get_ParsedConcepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslParser.cs:line 47
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 114
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-13 14:18:44.0057|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 14:18:44.0557|TRACE|DeployPackages|Getting packages.
+2019-03-13 14:18:44.0753|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:18:47.0742|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:18:47.4323|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 14:18:47.4554|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:18:48.0052|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:18:48.0351|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 14:18:48.0351|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 14:18:48.0461|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 14:18:48.0866|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 14:18:48.0866|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 14:18:48.0956|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 14:18:48.0956|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 14:18:48.2486|TRACE|DeployPackages|Loading plugins.
+2019-03-13 14:18:48.7091|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 14:18:48.7462|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 14:18:48.8152|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 14:18:49.0717|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Take HotelRhetos.RoomGrid.HotelRhetosHotelName: Invalid path: There is no property 'HotelRhetos' on Entity HotelRhetos.Room.
+   at Rhetos.Dsl.DefaultConcepts.DslUtility.ValidatePath(DataStructureInfo source, String path, IDslModel existingConcepts, IConceptInfo errorContext) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\DslUtility.cs:line 120
+   at Rhetos.Dsl.DefaultConcepts.BrowseTakeNamedPropertyInfo.CheckSemantics(IDslModel existingConcepts) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\SimpleBusinessLogic\BrowseTakeNamedPropertyInfo.cs:line 44
+   at Rhetos.Dsl.DslModel.<>c__DisplayClass32_1.<CheckSemantics>b__1() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 364
+   at Rhetos.Dsl.DslModel.CheckSemantics() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 373
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 118
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-13 14:19:22.2014|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 14:19:22.2514|TRACE|DeployPackages|Getting packages.
+2019-03-13 14:19:22.2714|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:19:25.3633|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:19:25.7195|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 14:19:25.7425|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:19:26.2509|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:19:26.2769|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 14:19:26.2819|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 14:19:26.2819|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 14:19:26.3269|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 14:19:26.3269|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 14:19:26.3269|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 14:19:26.3269|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 14:19:26.4799|TRACE|DeployPackages|Loading plugins.
+2019-03-13 14:19:26.9380|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 14:19:26.9640|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 14:19:27.0030|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 14:19:27.3018|TRACE|DeployPackages|Application model has 683 statements.
+2019-03-13 14:19:27.3018|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-13 14:19:27.4168|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-13 14:19:27.5820|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Orm.dll.
+2019-03-13 14:19:27.7651|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-13 14:19:28.0461|TRACE|DeployPackages|Generated 186 types.
+2019-03-13 14:19:28.0461|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-13 14:19:28.0681|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-13 14:19:28.1261|TRACE|AssemblyGenerator|Compiling assembly: RestService.dll.
+2019-03-13 14:19:28.3561|INFO|AssemblyGenerator|Warning CS1701: Assuming assembly reference 'Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da' matches 'Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da', you may need to supply runtime policy.
+2019-03-13 14:19:28.3631|INFO|AssemblyGenerator|90 warnings CS0618: 'Rhetos.LegacyClientException' is obsolete: 'Use ClientException instead.'. At line 267, column 34, file 'd:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\bin\Generated\RestService.cs'.
+2019-03-13 14:19:28.3631|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-13 14:19:28.5931|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-13 14:19:28.6681|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 14:19:28.6761|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-13 14:19:28.7432|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-13 14:19:28.7432|TRACE|DeployPackages|Upgrading database.
+2019-03-13 14:19:38.7657|INFO|Performance|00:00:10.0113426 DatabaseGenerator: Loaded old concept applications.
+2019-03-13 14:19:38.8607|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-13 14:19:38.8607|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
+2019-03-13 14:19:38.8776|INFO|Performance|00:00:10.1328766 DatabaseGenerator.UpdateDatabaseStructure
+2019-03-13 14:19:38.8926|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-13 14:19:38.9256|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 14:19:38.9256|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-13 14:19:38.9476|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-03-13 14:19:38.9556|TRACE|DeployPackages|Loading generated plugins.
+2019-03-13 14:19:39.0466|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-13 14:19:39.2227|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-13 14:19:39.3046|TRACE|ClaimGenerator Claims|Inserting claims HotelRhetos.RoomGrid.Read.
+2019-03-13 14:19:39.3707|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-13 14:19:39.3776|TRACE|DeployPackages|Done.
+2019-03-13 14:21:23.1807|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 14:21:23.2507|TRACE|DeployPackages|Getting packages.
+2019-03-13 14:21:23.2667|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:21:26.2852|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:21:26.6632|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 14:21:26.6872|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:21:27.2040|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:21:27.2350|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 14:21:27.2350|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 14:21:27.2350|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 14:21:27.2830|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 14:21:27.2830|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 14:21:27.2830|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 14:21:27.2830|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 14:21:27.4290|TRACE|DeployPackages|Loading plugins.
+2019-03-13 14:21:27.8884|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 14:21:27.9134|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 14:21:27.9886|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 14:21:28.2206|ERROR|DeployPackages|Rhetos.Dsl.DslSyntaxException: Take HotelRhetos.RoomGrid.RomNumberOfReservationsNumberOfReservations: Invalid path: There is no property 'RomNumberOfReservations' on Entity HotelRhetos.Room.
+   at Rhetos.Dsl.DefaultConcepts.DslUtility.ValidatePath(DataStructureInfo source, String path, IDslModel existingConcepts, IConceptInfo errorContext) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\DslUtility.cs:line 120
+   at Rhetos.Dsl.DefaultConcepts.BrowseTakeNamedPropertyInfo.CheckSemantics(IDslModel existingConcepts) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dsl.DefaultConcepts\SimpleBusinessLogic\BrowseTakeNamedPropertyInfo.cs:line 44
+   at Rhetos.Dsl.DslModel.<>c__DisplayClass32_1.<CheckSemantics>b__1() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 364
+   at Rhetos.Dsl.DslModel.CheckSemantics() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 373
+   at Rhetos.Dsl.DslModel.Initialize() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 118
+   at Rhetos.Dsl.DslModel.get_Concepts() in C:\My Projects\Rhetos\Source\Rhetos.Dsl\DslModel.cs:line 75
+   at Rhetos.Deployment.ApplicationGenerator.ExecuteGenerators(Boolean deployDatabaseOnly) in C:\My Projects\Rhetos\Source\Rhetos.Deployment\ApplicationGenerator.cs:line 79
+   at DeployPackages.Program.GenerateApplication(ILogger logger, DeployArguments arguments) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 184
+   at DeployPackages.Program.Main(String[] args) in C:\My Projects\Rhetos\Source\DeployPackages\Program.cs:line 70
+Info: 
+2019-03-13 14:22:20.3625|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 14:22:20.4234|TRACE|DeployPackages|Getting packages.
+2019-03-13 14:22:20.4424|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:22:23.3958|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:22:23.7549|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 14:22:23.7769|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:22:24.2969|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:22:24.3419|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 14:22:24.3469|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 14:22:24.3469|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 14:22:24.3899|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 14:22:24.3899|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 14:22:24.3899|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 14:22:24.3899|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 14:22:24.5399|TRACE|DeployPackages|Loading plugins.
+2019-03-13 14:22:24.9939|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 14:22:25.0199|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 14:22:25.0889|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 14:22:25.3920|TRACE|DeployPackages|Application model has 686 statements.
+2019-03-13 14:22:25.3920|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-13 14:22:25.5170|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-13 14:22:25.6770|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-13 14:22:25.7360|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-13 14:22:26.0070|TRACE|DeployPackages|Generated 186 types.
+2019-03-13 14:22:26.0150|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-13 14:22:26.0150|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-13 14:22:26.0790|TRACE|AssemblyGenerator|Restoring assembly from cache: RestService.dll.
+2019-03-13 14:22:26.1100|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-13 14:22:26.3140|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-13 14:22:26.3500|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 14:22:26.3500|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-13 14:22:26.3800|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-13 14:22:26.3800|TRACE|DeployPackages|Upgrading database.
+2019-03-13 14:22:26.5200|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-13 14:22:26.5320|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
+2019-03-13 14:22:26.5320|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-13 14:22:26.5540|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 14:22:26.5540|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-13 14:22:26.5750|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-03-13 14:22:26.5830|TRACE|DeployPackages|Loading generated plugins.
+2019-03-13 14:22:26.6790|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-13 14:22:26.8450|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-13 14:22:26.9220|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-13 14:22:26.9370|TRACE|DeployPackages|Done.
+2019-03-13 14:23:38.0470|TRACE|DeployPackages|Moving old generated files to cache.
+2019-03-13 14:23:38.1105|TRACE|DeployPackages|Getting packages.
+2019-03-13 14:23:38.1335|TRACE|PackageDownloader|Not looking for Rhetos.CommonConcepts (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:23:41.2954|TRACE|PackageDownloader|Downloading NuGet package Rhetos.CommonConcepts 2.11.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:23:41.6548|TRACE|NuGet|'Rhetos.CommonConcepts 2.11.0' already installed.
+2019-03-13 14:23:41.6768|TRACE|PackageDownloader|Not looking for Rhetos.RestGenerator (version not specified) in packages cache because the request does not specify an exact version.
+2019-03-13 14:23:42.1856|TRACE|PackageDownloader|Downloading NuGet package Rhetos.RestGenerator 2.5.0 from https://www.nuget.org/api/v2/.
+2019-03-13 14:23:42.2176|TRACE|NuGet|'Rhetos.RestGenerator 2.5.0' already installed.
+2019-03-13 14:23:42.2176|TRACE|PackageDownloader|Reading package HotelRhetos from unpacked source folder without metadata file.
+2019-03-13 14:23:42.2176|TRACE|DeployPackages|Reading HotelRhetos from source without metadata.
+2019-03-13 14:23:42.2666|TRACE|Packages|HotelRhetos 0.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\src.
+2019-03-13 14:23:42.2666|TRACE|Packages|Rhetos 2.11.0 (requested from Rhetos framework) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer.
+2019-03-13 14:23:42.2666|TRACE|Packages|Rhetos.CommonConcepts 2.11.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.CommonConcepts.2.11.0.
+2019-03-13 14:23:42.2666|TRACE|Packages|Rhetos.RestGenerator 2.5.0 (requested from configuration file RhetosPackages.config) in D:\Rhetos\RhetosWorkshop\HotelRhetos\RhetosServer\PackagesCache\Rhetos.RestGenerator.2.5.0.
+2019-03-13 14:23:42.4376|TRACE|DeployPackages|Loading plugins.
+2019-03-13 14:23:42.8956|TRACE|DeployPackages|SQL connection: DataSource=SUN1, InitialCatalog=HotelRhetos
+2019-03-13 14:23:42.9376|TRACE|DeployPackages|Preparing Rhetos database.
+2019-03-13 14:23:43.0026|TRACE|DeployPackages|Parsing DSL scripts.
+2019-03-13 14:23:43.3231|TRACE|DeployPackages|Application model has 686 statements.
+2019-03-13 14:23:43.3281|TRACE|DeployPackages|Compiling DOM assembly.
+2019-03-13 14:23:43.4072|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Model.dll.
+2019-03-13 14:23:43.5641|TRACE|AssemblyGenerator|Restoring assembly from cache: ServerDom.Orm.dll.
+2019-03-13 14:23:43.6222|TRACE|AssemblyGenerator|Compiling assembly: ServerDom.Repositories.dll.
+2019-03-13 14:23:43.8952|TRACE|DeployPackages|Generated 186 types.
+2019-03-13 14:23:43.8952|TRACE|DeployPackages|Executing EntityFrameworkMappingGenerator.
+2019-03-13 14:23:43.9232|TRACE|DeployPackages|Executing RestGenerator.
+2019-03-13 14:23:43.9742|TRACE|AssemblyGenerator|Restoring assembly from cache: RestService.dll.
+2019-03-13 14:23:44.0032|TRACE|DeployPackages|Executing EntityFrameworkGenerateMetadataFiles.
+2019-03-13 14:23:44.2042|TRACE|DeployPackages|Cleaning old migration data.
+2019-03-13 14:23:44.2342|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 14:23:44.2342|TRACE|DeployPackages|Executing data migration scripts.
+2019-03-13 14:23:44.2702|TRACE|DeployPackages|Executed 0 of 8 scripts.
+2019-03-13 14:23:44.2702|TRACE|DeployPackages|Upgrading database.
+2019-03-13 14:23:44.4052|TRACE|DeployPackages|DatabaseGenerator removing 0 concept applications.
+2019-03-13 14:23:44.4242|TRACE|DeployPackages|DatabaseGenerator creating 0 concept applications.
+2019-03-13 14:23:44.4362|TRACE|DeployPackages|Deleting redundant migration data.
+2019-03-13 14:23:44.4362|TRACE|DeployPackages|Deleted 0 columns in data migration schemas, 13 remaining.
+2019-03-13 14:23:44.4572|TRACE|DeployPackages|Uploading DSL scripts.
+2019-03-13 14:23:44.4742|TRACE|DeployPackages|Uploaded 9 DSL scripts to database.
+2019-03-13 14:23:44.4742|TRACE|DeployPackages|Loading generated plugins.
+2019-03-13 14:23:44.5712|TRACE|DeployPackages|Initialization KeepSynchronizedRecomputeOnDeploy.
+2019-03-13 14:23:44.7489|TRACE|DeployPackages|Initialization ClaimGenerator.
+2019-03-13 14:23:44.8119|TRACE|DeployPackages|Updated Web.config modification date to restart server.
+2019-03-13 14:23:44.8119|TRACE|DeployPackages|Done.

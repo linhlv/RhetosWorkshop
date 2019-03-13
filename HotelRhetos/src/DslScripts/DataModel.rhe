@@ -2,13 +2,13 @@ Module HotelRhetos
 {
     Entity Hotel
     {
-        ShortString Name;
-        LongString Address;
+        ShortString Name { Unique; Required; MinLength 2; MaxLength 64; }
+        LongString Address { Required; }
     }
 
     Entity Room
     {
-        ShortString Name;
+        ShortString Name { Unique; Required; MinLength 2; MaxLength 64;}
 
         Reference Hotel;
         Reference RoomType;
@@ -16,25 +16,25 @@ Module HotelRhetos
 
     Entity RoomType
     {
-        ShortString Name;
+        ShortString Name { Unique; Required; MinLength 2; MaxLength 64;}
         Decimal Price;
     }
 
     Entity Guest
     {
-        ShortString FirstName;
+        ShortString FirstName { Required; MinLength 2; MaxLength 64; }
         ShortString LastName;
-        ShortString PhoneNumber;
-        ShortString Email;
+        ShortString PhoneNumber { RegExMatch "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$" "Invalid phone number"; }
+        ShortString Email { RegExMatch "^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$" "Invalid email."; }
     }
     
     Entity Service
     {
-        ShortString Name;
+        ShortString Name { Unique; Required; }
         Decimal Price;
     }
 
-    Entity Reservation
+    Entity Reservations
     {
         DateTime CheckIn;
         DateTime CheckOut;
@@ -48,14 +48,15 @@ Module HotelRhetos
         Decimal TotalAmount;
         Bool Payed;
         
-        Reference Reservation;
+        Reference Reservations;
     }
 
     Entity InvoiceItem
     {
         Decimal Discount;
 
-        Reference Service;
+        Reference Service { Required; }
         Reference Invoice { Detail; }
+        UniqueMultiple 'Invoice Service';
     }
 }

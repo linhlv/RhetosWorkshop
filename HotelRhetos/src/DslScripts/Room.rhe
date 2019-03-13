@@ -1,0 +1,17 @@
+Module HotelRhetos
+{
+    SqlQueryable RomNumberOfReservations <SQL\RomNumberOfReservations.sql>
+    {
+        Extends HotelRhetos.Room;
+        Integer NumberOfReservations;
+        
+        AutodetectSqlDependencies;
+    }
+
+    Browse RoomGrid HotelRhetos.Room
+    {
+        Take RoomNumber Name;
+        Take HotelName 'Hotel.Name';
+        Take NumberOfReservations 'Extension_RomNumberOfReservations.NumberOfReservations';
+    }
+}

@@ -179,9 +179,11 @@ namespace Common
             builder.RegisterType<HotelRhetos._Helper.RoomType_Repository>().Keyed<IRepository>("HotelRhetos.RoomType").InstancePerLifetimeScope();
             builder.RegisterType<HotelRhetos._Helper.Guest_Repository>().Keyed<IRepository>("HotelRhetos.Guest").InstancePerLifetimeScope();
             builder.RegisterType<HotelRhetos._Helper.Service_Repository>().Keyed<IRepository>("HotelRhetos.Service").InstancePerLifetimeScope();
-            builder.RegisterType<HotelRhetos._Helper.Reservation_Repository>().Keyed<IRepository>("HotelRhetos.Reservation").InstancePerLifetimeScope();
+            builder.RegisterType<HotelRhetos._Helper.Reservations_Repository>().Keyed<IRepository>("HotelRhetos.Reservations").InstancePerLifetimeScope();
             builder.RegisterType<HotelRhetos._Helper.Invoice_Repository>().Keyed<IRepository>("HotelRhetos.Invoice").InstancePerLifetimeScope();
             builder.RegisterType<HotelRhetos._Helper.InvoiceItem_Repository>().Keyed<IRepository>("HotelRhetos.InvoiceItem").InstancePerLifetimeScope();
+            builder.RegisterType<HotelRhetos._Helper.RomNumberOfReservations_Repository>().Keyed<IRepository>("HotelRhetos.RomNumberOfReservations").InstancePerLifetimeScope();
+            builder.RegisterType<HotelRhetos._Helper.RoomGrid_Repository>().Keyed<IRepository>("HotelRhetos.RoomGrid").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.AutoCodeCache_Repository>().Keyed<IRepository>("Common.AutoCodeCache").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.FilterId_Repository>().Keyed<IRepository>("Common.FilterId").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.KeepSynchronizedMetadata_Repository>().Keyed<IRepository>("Common.KeepSynchronizedMetadata").InstancePerLifetimeScope();
@@ -357,14 +359,20 @@ namespace HotelRhetos._Helper
         private Service_Repository _Service_Repository;
         public Service_Repository Service { get { return _Service_Repository ?? (_Service_Repository = (Service_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"HotelRhetos.Service")); } }
 
-        private Reservation_Repository _Reservation_Repository;
-        public Reservation_Repository Reservation { get { return _Reservation_Repository ?? (_Reservation_Repository = (Reservation_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"HotelRhetos.Reservation")); } }
+        private Reservations_Repository _Reservations_Repository;
+        public Reservations_Repository Reservations { get { return _Reservations_Repository ?? (_Reservations_Repository = (Reservations_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"HotelRhetos.Reservations")); } }
 
         private Invoice_Repository _Invoice_Repository;
         public Invoice_Repository Invoice { get { return _Invoice_Repository ?? (_Invoice_Repository = (Invoice_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"HotelRhetos.Invoice")); } }
 
         private InvoiceItem_Repository _InvoiceItem_Repository;
         public InvoiceItem_Repository InvoiceItem { get { return _InvoiceItem_Repository ?? (_InvoiceItem_Repository = (InvoiceItem_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"HotelRhetos.InvoiceItem")); } }
+
+        private RomNumberOfReservations_Repository _RomNumberOfReservations_Repository;
+        public RomNumberOfReservations_Repository RomNumberOfReservations { get { return _RomNumberOfReservations_Repository ?? (_RomNumberOfReservations_Repository = (RomNumberOfReservations_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"HotelRhetos.RomNumberOfReservations")); } }
+
+        private RoomGrid_Repository _RoomGrid_Repository;
+        public RoomGrid_Repository RoomGrid { get { return _RoomGrid_Repository ?? (_RoomGrid_Repository = (RoomGrid_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"HotelRhetos.RoomGrid")); } }
 
         /*ModuleInfo RepositoryMembers HotelRhetos*/
     }
@@ -424,6 +432,20 @@ namespace HotelRhetos._Helper
 
             /*DataStructureInfo WritableOrm OldDataLoaded HotelRhetos.Hotel*/
 
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Name == null || string.IsNullOrWhiteSpace(item.Name) /*RequiredPropertyInfo OrCondition HotelRhetos.Hotel.Name*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "HotelRhetos.Hotel", "Name" },
+                        "DataStructure:HotelRhetos.Hotel,ID:" + invalid.ID.ToString() + ",Property:Name", null);
+            }
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Address == null || string.IsNullOrWhiteSpace(item.Address) /*RequiredPropertyInfo OrCondition HotelRhetos.Hotel.Address*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "HotelRhetos.Hotel", "Address" },
+                        "DataStructure:HotelRhetos.Hotel,ID:" + invalid.ID.ToString() + ",Property:Address", null);
+            }
             /*DataStructureInfo WritableOrm ProcessedOldData HotelRhetos.Hotel*/
 
             DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
@@ -465,6 +487,8 @@ namespace HotelRhetos._Helper
         		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
         		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"HotelRhetos.Room", @"HotelID", @"FK_Room_Hotel_HotelID"))
                     ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Room,Property:HotelID,Referenced:HotelRhetos.Hotel";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"HotelRhetos.Hotel", @"IX_Hotel_Name"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Hotel,Property:Name";
                 /*DataStructureInfo WritableOrm OnDatabaseError HotelRhetos.Hotel*/
                 if (checkUserPermissions)
                     Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "HotelRhetos.Hotel");
@@ -503,8 +527,90 @@ namespace HotelRhetos._Helper
 
         public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
         {
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new Name_MaxLengthFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_Name__MaxLengthFilter(errorIds))
+                        yield return error;
+            }
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new Name_MinLengthFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_Name__MinLengthFilter(errorIds))
+                        yield return error;
+            }
             /*DataStructureInfo WritableOrm OnSaveValidate HotelRhetos.Hotel*/
             yield break;
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_Name__MaxLengthFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Maximum allowed length of {0} is {1} characters.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"Name_MaxLengthFilter";
+            metadata[@"Property"] = @"Name";
+            /*InvalidDataInfo ErrorMetadata HotelRhetos.Hotel.Name_MaxLengthFilter*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"Name", 64 },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages HotelRhetos.Hotel.Name_MaxLengthFilter*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_Name__MinLengthFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Minimum allowed length of {0} is {1} characters.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"Name_MinLengthFilter";
+            metadata[@"Property"] = @"Name";
+            /*InvalidDataInfo ErrorMetadata HotelRhetos.Hotel.Name_MinLengthFilter*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"Name", 2 },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages HotelRhetos.Hotel.Name_MinLengthFilter*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_Hotel> Filter(IQueryable<Common.Queryable.HotelRhetos_Hotel> localSource, HotelRhetos.Name_MaxLengthFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.HotelRhetos_Hotel>, Common.DomRepository, HotelRhetos.Name_MaxLengthFilter/*ComposableFilterByInfo AdditionalParametersType HotelRhetos.Hotel.'HotelRhetos.Name_MaxLengthFilter'*/, IQueryable<Common.Queryable.HotelRhetos_Hotel>> filterFunction =
+            (source, repository, parameter) => source.Where(item => !String.IsNullOrEmpty(item.Name) && item.Name.Length > 64);
+
+            /*ComposableFilterByInfo BeforeFilter HotelRhetos.Hotel.'HotelRhetos.Name_MaxLengthFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument HotelRhetos.Hotel.'HotelRhetos.Name_MaxLengthFilter'*/);
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_Hotel> Filter(IQueryable<Common.Queryable.HotelRhetos_Hotel> localSource, HotelRhetos.Name_MinLengthFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.HotelRhetos_Hotel>, Common.DomRepository, HotelRhetos.Name_MinLengthFilter/*ComposableFilterByInfo AdditionalParametersType HotelRhetos.Hotel.'HotelRhetos.Name_MinLengthFilter'*/, IQueryable<Common.Queryable.HotelRhetos_Hotel>> filterFunction =
+            (source, repository, parameter) => source.Where(item => !String.IsNullOrEmpty(item.Name) && item.Name.Length < 2);
+
+            /*ComposableFilterByInfo BeforeFilter HotelRhetos.Hotel.'HotelRhetos.Name_MinLengthFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument HotelRhetos.Hotel.'HotelRhetos.Name_MinLengthFilter'*/);
+        }
+
+        public global::HotelRhetos.Hotel[] Filter(HotelRhetos.Name_MaxLengthFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, HotelRhetos.Name_MaxLengthFilter/*FilterByInfo AdditionalParametersType HotelRhetos.Hotel.'HotelRhetos.Name_MaxLengthFilter'*/, HotelRhetos.Hotel[]> filter_Function =
+                (repository, parameter) => repository.HotelRhetos.Hotel.Filter(repository.HotelRhetos.Hotel.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument HotelRhetos.Hotel.'HotelRhetos.Name_MaxLengthFilter'*/);
+        }
+
+        public global::HotelRhetos.Hotel[] Filter(HotelRhetos.Name_MinLengthFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, HotelRhetos.Name_MinLengthFilter/*FilterByInfo AdditionalParametersType HotelRhetos.Hotel.'HotelRhetos.Name_MinLengthFilter'*/, HotelRhetos.Hotel[]> filter_Function =
+                (repository, parameter) => repository.HotelRhetos.Hotel.Filter(repository.HotelRhetos.Hotel.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument HotelRhetos.Hotel.'HotelRhetos.Name_MinLengthFilter'*/);
         }
 
         /*DataStructureInfo RepositoryMembers HotelRhetos.Hotel*/
@@ -565,6 +671,13 @@ namespace HotelRhetos._Helper
 
             /*DataStructureInfo WritableOrm OldDataLoaded HotelRhetos.Room*/
 
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Name == null || string.IsNullOrWhiteSpace(item.Name) /*RequiredPropertyInfo OrCondition HotelRhetos.Room.Name*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "HotelRhetos.Room", "Name" },
+                        "DataStructure:HotelRhetos.Room,ID:" + invalid.ID.ToString() + ",Property:Name", null);
+            }
             /*DataStructureInfo WritableOrm ProcessedOldData HotelRhetos.Room*/
 
             DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
@@ -608,8 +721,10 @@ namespace HotelRhetos._Helper
                     ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Room,Property:HotelID,Referenced:HotelRhetos.Hotel";
                 if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"HotelRhetos.RoomType", @"ID", @"FK_Room_RoomType_RoomTypeID"))
                     ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Room,Property:RoomTypeID,Referenced:HotelRhetos.RoomType";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"HotelRhetos.Reservation", @"RoomID", @"FK_Reservation_Room_RoomID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Reservation,Property:RoomID,Referenced:HotelRhetos.Room";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"HotelRhetos.Reservations", @"RoomID", @"FK_Reservations_Room_RoomID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Reservations,Property:RoomID,Referenced:HotelRhetos.Room";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"HotelRhetos.Room", @"IX_Room_Name"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Room,Property:Name";
                 /*DataStructureInfo WritableOrm OnDatabaseError HotelRhetos.Room*/
                 if (checkUserPermissions)
                     Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "HotelRhetos.Room");
@@ -648,8 +763,90 @@ namespace HotelRhetos._Helper
 
         public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
         {
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new Name_MaxLengthFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_Name__MaxLengthFilter(errorIds))
+                        yield return error;
+            }
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new Name_MinLengthFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_Name__MinLengthFilter(errorIds))
+                        yield return error;
+            }
             /*DataStructureInfo WritableOrm OnSaveValidate HotelRhetos.Room*/
             yield break;
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_Name__MaxLengthFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Maximum allowed length of {0} is {1} characters.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"Name_MaxLengthFilter";
+            metadata[@"Property"] = @"Name";
+            /*InvalidDataInfo ErrorMetadata HotelRhetos.Room.Name_MaxLengthFilter*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"Name", 64 },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages HotelRhetos.Room.Name_MaxLengthFilter*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_Name__MinLengthFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Minimum allowed length of {0} is {1} characters.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"Name_MinLengthFilter";
+            metadata[@"Property"] = @"Name";
+            /*InvalidDataInfo ErrorMetadata HotelRhetos.Room.Name_MinLengthFilter*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"Name", 2 },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages HotelRhetos.Room.Name_MinLengthFilter*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_Room> Filter(IQueryable<Common.Queryable.HotelRhetos_Room> localSource, HotelRhetos.Name_MaxLengthFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.HotelRhetos_Room>, Common.DomRepository, HotelRhetos.Name_MaxLengthFilter/*ComposableFilterByInfo AdditionalParametersType HotelRhetos.Room.'HotelRhetos.Name_MaxLengthFilter'*/, IQueryable<Common.Queryable.HotelRhetos_Room>> filterFunction =
+            (source, repository, parameter) => source.Where(item => !String.IsNullOrEmpty(item.Name) && item.Name.Length > 64);
+
+            /*ComposableFilterByInfo BeforeFilter HotelRhetos.Room.'HotelRhetos.Name_MaxLengthFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument HotelRhetos.Room.'HotelRhetos.Name_MaxLengthFilter'*/);
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_Room> Filter(IQueryable<Common.Queryable.HotelRhetos_Room> localSource, HotelRhetos.Name_MinLengthFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.HotelRhetos_Room>, Common.DomRepository, HotelRhetos.Name_MinLengthFilter/*ComposableFilterByInfo AdditionalParametersType HotelRhetos.Room.'HotelRhetos.Name_MinLengthFilter'*/, IQueryable<Common.Queryable.HotelRhetos_Room>> filterFunction =
+            (source, repository, parameter) => source.Where(item => !String.IsNullOrEmpty(item.Name) && item.Name.Length < 2);
+
+            /*ComposableFilterByInfo BeforeFilter HotelRhetos.Room.'HotelRhetos.Name_MinLengthFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument HotelRhetos.Room.'HotelRhetos.Name_MinLengthFilter'*/);
+        }
+
+        public global::HotelRhetos.Room[] Filter(HotelRhetos.Name_MaxLengthFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, HotelRhetos.Name_MaxLengthFilter/*FilterByInfo AdditionalParametersType HotelRhetos.Room.'HotelRhetos.Name_MaxLengthFilter'*/, HotelRhetos.Room[]> filter_Function =
+                (repository, parameter) => repository.HotelRhetos.Room.Filter(repository.HotelRhetos.Room.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument HotelRhetos.Room.'HotelRhetos.Name_MaxLengthFilter'*/);
+        }
+
+        public global::HotelRhetos.Room[] Filter(HotelRhetos.Name_MinLengthFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, HotelRhetos.Name_MinLengthFilter/*FilterByInfo AdditionalParametersType HotelRhetos.Room.'HotelRhetos.Name_MinLengthFilter'*/, HotelRhetos.Room[]> filter_Function =
+                (repository, parameter) => repository.HotelRhetos.Room.Filter(repository.HotelRhetos.Room.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument HotelRhetos.Room.'HotelRhetos.Name_MinLengthFilter'*/);
         }
 
         /*DataStructureInfo RepositoryMembers HotelRhetos.Room*/
@@ -710,6 +907,13 @@ namespace HotelRhetos._Helper
 
             /*DataStructureInfo WritableOrm OldDataLoaded HotelRhetos.RoomType*/
 
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Name == null || string.IsNullOrWhiteSpace(item.Name) /*RequiredPropertyInfo OrCondition HotelRhetos.RoomType.Name*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "HotelRhetos.RoomType", "Name" },
+                        "DataStructure:HotelRhetos.RoomType,ID:" + invalid.ID.ToString() + ",Property:Name", null);
+            }
             /*DataStructureInfo WritableOrm ProcessedOldData HotelRhetos.RoomType*/
 
             DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
@@ -751,6 +955,8 @@ namespace HotelRhetos._Helper
         		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
         		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"HotelRhetos.Room", @"RoomTypeID", @"FK_Room_RoomType_RoomTypeID"))
                     ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Room,Property:RoomTypeID,Referenced:HotelRhetos.RoomType";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"HotelRhetos.RoomType", @"IX_RoomType_Name"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.RoomType,Property:Name";
                 /*DataStructureInfo WritableOrm OnDatabaseError HotelRhetos.RoomType*/
                 if (checkUserPermissions)
                     Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "HotelRhetos.RoomType");
@@ -789,8 +995,90 @@ namespace HotelRhetos._Helper
 
         public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
         {
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new Name_MaxLengthFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_Name__MaxLengthFilter(errorIds))
+                        yield return error;
+            }
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new Name_MinLengthFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_Name__MinLengthFilter(errorIds))
+                        yield return error;
+            }
             /*DataStructureInfo WritableOrm OnSaveValidate HotelRhetos.RoomType*/
             yield break;
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_Name__MaxLengthFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Maximum allowed length of {0} is {1} characters.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"Name_MaxLengthFilter";
+            metadata[@"Property"] = @"Name";
+            /*InvalidDataInfo ErrorMetadata HotelRhetos.RoomType.Name_MaxLengthFilter*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"Name", 64 },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages HotelRhetos.RoomType.Name_MaxLengthFilter*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_Name__MinLengthFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Minimum allowed length of {0} is {1} characters.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"Name_MinLengthFilter";
+            metadata[@"Property"] = @"Name";
+            /*InvalidDataInfo ErrorMetadata HotelRhetos.RoomType.Name_MinLengthFilter*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"Name", 2 },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages HotelRhetos.RoomType.Name_MinLengthFilter*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_RoomType> Filter(IQueryable<Common.Queryable.HotelRhetos_RoomType> localSource, HotelRhetos.Name_MaxLengthFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.HotelRhetos_RoomType>, Common.DomRepository, HotelRhetos.Name_MaxLengthFilter/*ComposableFilterByInfo AdditionalParametersType HotelRhetos.RoomType.'HotelRhetos.Name_MaxLengthFilter'*/, IQueryable<Common.Queryable.HotelRhetos_RoomType>> filterFunction =
+            (source, repository, parameter) => source.Where(item => !String.IsNullOrEmpty(item.Name) && item.Name.Length > 64);
+
+            /*ComposableFilterByInfo BeforeFilter HotelRhetos.RoomType.'HotelRhetos.Name_MaxLengthFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument HotelRhetos.RoomType.'HotelRhetos.Name_MaxLengthFilter'*/);
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_RoomType> Filter(IQueryable<Common.Queryable.HotelRhetos_RoomType> localSource, HotelRhetos.Name_MinLengthFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.HotelRhetos_RoomType>, Common.DomRepository, HotelRhetos.Name_MinLengthFilter/*ComposableFilterByInfo AdditionalParametersType HotelRhetos.RoomType.'HotelRhetos.Name_MinLengthFilter'*/, IQueryable<Common.Queryable.HotelRhetos_RoomType>> filterFunction =
+            (source, repository, parameter) => source.Where(item => !String.IsNullOrEmpty(item.Name) && item.Name.Length < 2);
+
+            /*ComposableFilterByInfo BeforeFilter HotelRhetos.RoomType.'HotelRhetos.Name_MinLengthFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument HotelRhetos.RoomType.'HotelRhetos.Name_MinLengthFilter'*/);
+        }
+
+        public global::HotelRhetos.RoomType[] Filter(HotelRhetos.Name_MaxLengthFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, HotelRhetos.Name_MaxLengthFilter/*FilterByInfo AdditionalParametersType HotelRhetos.RoomType.'HotelRhetos.Name_MaxLengthFilter'*/, HotelRhetos.RoomType[]> filter_Function =
+                (repository, parameter) => repository.HotelRhetos.RoomType.Filter(repository.HotelRhetos.RoomType.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument HotelRhetos.RoomType.'HotelRhetos.Name_MaxLengthFilter'*/);
+        }
+
+        public global::HotelRhetos.RoomType[] Filter(HotelRhetos.Name_MinLengthFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, HotelRhetos.Name_MinLengthFilter/*FilterByInfo AdditionalParametersType HotelRhetos.RoomType.'HotelRhetos.Name_MinLengthFilter'*/, HotelRhetos.RoomType[]> filter_Function =
+                (repository, parameter) => repository.HotelRhetos.RoomType.Filter(repository.HotelRhetos.RoomType.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument HotelRhetos.RoomType.'HotelRhetos.Name_MinLengthFilter'*/);
         }
 
         /*DataStructureInfo RepositoryMembers HotelRhetos.RoomType*/
@@ -878,6 +1166,13 @@ namespace HotelRhetos._Helper
 
             /*DataStructureInfo WritableOrm OldDataLoaded HotelRhetos.Guest*/
 
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.FirstName == null || string.IsNullOrWhiteSpace(item.FirstName) /*RequiredPropertyInfo OrCondition HotelRhetos.Guest.FirstName*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "HotelRhetos.Guest", "FirstName" },
+                        "DataStructure:HotelRhetos.Guest,ID:" + invalid.ID.ToString() + ",Property:FirstName", null);
+            }
             /*DataStructureInfo WritableOrm ProcessedOldData HotelRhetos.Guest*/
 
             DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
@@ -917,8 +1212,8 @@ namespace HotelRhetos._Helper
             {
                 DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
         		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"HotelRhetos.Reservation", @"GuestID", @"FK_Reservation_Guest_GuestID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Reservation,Property:GuestID,Referenced:HotelRhetos.Guest";
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"HotelRhetos.Reservations", @"GuestID", @"FK_Reservations_Guest_GuestID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Reservations,Property:GuestID,Referenced:HotelRhetos.Guest";
                 /*DataStructureInfo WritableOrm OnDatabaseError HotelRhetos.Guest*/
                 if (checkUserPermissions)
                     Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "HotelRhetos.Guest");
@@ -957,8 +1252,170 @@ namespace HotelRhetos._Helper
 
         public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
         {
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new FirstName_MaxLengthFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_FirstName__MaxLengthFilter(errorIds))
+                        yield return error;
+            }
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new FirstName_MinLengthFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_FirstName__MinLengthFilter(errorIds))
+                        yield return error;
+            }
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new HotelRhetos.PhoneNumber_RegExMatchFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_PhoneNumber_RegExMatchFilter(errorIds))
+                        yield return error;
+            }
+            if (onSave)
+            {
+                var errorIds = this.Filter(this.Query(ids), new HotelRhetos.Email_RegExMatchFilter()).Select(item => item.ID).ToArray();
+                if (errorIds.Count() > 0)
+                    foreach (var error in GetErrorMessage_Email_RegExMatchFilter(errorIds))
+                        yield return error;
+            }
             /*DataStructureInfo WritableOrm OnSaveValidate HotelRhetos.Guest*/
             yield break;
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_FirstName__MaxLengthFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Maximum allowed length of {0} is {1} characters.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"FirstName_MaxLengthFilter";
+            metadata[@"Property"] = @"FirstName";
+            /*InvalidDataInfo ErrorMetadata HotelRhetos.Guest.FirstName_MaxLengthFilter*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"FirstName", 64 },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages HotelRhetos.Guest.FirstName_MaxLengthFilter*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_FirstName__MinLengthFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Minimum allowed length of {0} is {1} characters.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"FirstName_MinLengthFilter";
+            metadata[@"Property"] = @"FirstName";
+            /*InvalidDataInfo ErrorMetadata HotelRhetos.Guest.FirstName_MinLengthFilter*/
+            return invalidData_Ids.Select(id => new InvalidDataMessage
+            {
+                ID = id,
+                Message = invalidData_Description,
+                MessageParameters = new object[] { @"FirstName", 2 },
+                Metadata = metadata
+            });
+            // /*InvalidDataInfo OverrideUserMessages HotelRhetos.Guest.FirstName_MinLengthFilter*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_Guest> Filter(IQueryable<Common.Queryable.HotelRhetos_Guest> localSource, HotelRhetos.PhoneNumber_RegExMatchFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.HotelRhetos_Guest>, Common.DomRepository, HotelRhetos.PhoneNumber_RegExMatchFilter/*ComposableFilterByInfo AdditionalParametersType HotelRhetos.Guest.'HotelRhetos.PhoneNumber_RegExMatchFilter'*/, IQueryable<Common.Queryable.HotelRhetos_Guest>> filterFunction =
+            (source, repository, parameter) =>
+                {
+                    var items = source.Where(item => !string.IsNullOrEmpty(item.PhoneNumber)).Select(item => new { item.ID, item.PhoneNumber }).ToList();
+                    var regex = new System.Text.RegularExpressions.Regex(@"^^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$$");
+                    var invalidItemIds = items.Where(item => !regex.IsMatch(item.PhoneNumber)).Select(item => item.ID).ToList();
+                    return Filter(source, invalidItemIds);
+                };
+
+            /*ComposableFilterByInfo BeforeFilter HotelRhetos.Guest.'HotelRhetos.PhoneNumber_RegExMatchFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument HotelRhetos.Guest.'HotelRhetos.PhoneNumber_RegExMatchFilter'*/);
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_PhoneNumber_RegExMatchFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Invalid phone number";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"HotelRhetos.PhoneNumber_RegExMatchFilter";
+            metadata[@"Property"] = @"PhoneNumber";
+            /*InvalidDataInfo ErrorMetadata HotelRhetos.Guest.'HotelRhetos.PhoneNumber_RegExMatchFilter'*/
+            /*InvalidDataInfo OverrideUserMessages HotelRhetos.Guest.'HotelRhetos.PhoneNumber_RegExMatchFilter'*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_Guest> Filter(IQueryable<Common.Queryable.HotelRhetos_Guest> localSource, HotelRhetos.Email_RegExMatchFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.HotelRhetos_Guest>, Common.DomRepository, HotelRhetos.Email_RegExMatchFilter/*ComposableFilterByInfo AdditionalParametersType HotelRhetos.Guest.'HotelRhetos.Email_RegExMatchFilter'*/, IQueryable<Common.Queryable.HotelRhetos_Guest>> filterFunction =
+            (source, repository, parameter) =>
+                {
+                    var items = source.Where(item => !string.IsNullOrEmpty(item.Email)).Select(item => new { item.ID, item.Email }).ToList();
+                    var regex = new System.Text.RegularExpressions.Regex(@"^^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$$");
+                    var invalidItemIds = items.Where(item => !regex.IsMatch(item.Email)).Select(item => item.ID).ToList();
+                    return Filter(source, invalidItemIds);
+                };
+
+            /*ComposableFilterByInfo BeforeFilter HotelRhetos.Guest.'HotelRhetos.Email_RegExMatchFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument HotelRhetos.Guest.'HotelRhetos.Email_RegExMatchFilter'*/);
+        }
+
+        public IEnumerable<InvalidDataMessage> GetErrorMessage_Email_RegExMatchFilter(IEnumerable<Guid> invalidData_Ids)
+        {
+            const string invalidData_Description = @"Invalid email.";
+            IDictionary<string, object> metadata = new Dictionary<string, object>();
+            metadata["Validation"] = @"HotelRhetos.Email_RegExMatchFilter";
+            metadata[@"Property"] = @"Email";
+            /*InvalidDataInfo ErrorMetadata HotelRhetos.Guest.'HotelRhetos.Email_RegExMatchFilter'*/
+            /*InvalidDataInfo OverrideUserMessages HotelRhetos.Guest.'HotelRhetos.Email_RegExMatchFilter'*/ return invalidData_Ids.Select(id => new InvalidDataMessage { ID = id, Message = invalidData_Description, Metadata = metadata });
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_Guest> Filter(IQueryable<Common.Queryable.HotelRhetos_Guest> localSource, HotelRhetos.FirstName_MaxLengthFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.HotelRhetos_Guest>, Common.DomRepository, HotelRhetos.FirstName_MaxLengthFilter/*ComposableFilterByInfo AdditionalParametersType HotelRhetos.Guest.'HotelRhetos.FirstName_MaxLengthFilter'*/, IQueryable<Common.Queryable.HotelRhetos_Guest>> filterFunction =
+            (source, repository, parameter) => source.Where(item => !String.IsNullOrEmpty(item.FirstName) && item.FirstName.Length > 64);
+
+            /*ComposableFilterByInfo BeforeFilter HotelRhetos.Guest.'HotelRhetos.FirstName_MaxLengthFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument HotelRhetos.Guest.'HotelRhetos.FirstName_MaxLengthFilter'*/);
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_Guest> Filter(IQueryable<Common.Queryable.HotelRhetos_Guest> localSource, HotelRhetos.FirstName_MinLengthFilter localParameter)
+        {
+            Func<IQueryable<Common.Queryable.HotelRhetos_Guest>, Common.DomRepository, HotelRhetos.FirstName_MinLengthFilter/*ComposableFilterByInfo AdditionalParametersType HotelRhetos.Guest.'HotelRhetos.FirstName_MinLengthFilter'*/, IQueryable<Common.Queryable.HotelRhetos_Guest>> filterFunction =
+            (source, repository, parameter) => source.Where(item => !String.IsNullOrEmpty(item.FirstName) && item.FirstName.Length < 2);
+
+            /*ComposableFilterByInfo BeforeFilter HotelRhetos.Guest.'HotelRhetos.FirstName_MinLengthFilter'*/
+            return filterFunction(localSource, _domRepository, localParameter/*ComposableFilterByInfo AdditionalParametersArgument HotelRhetos.Guest.'HotelRhetos.FirstName_MinLengthFilter'*/);
+        }
+
+        public global::HotelRhetos.Guest[] Filter(HotelRhetos.PhoneNumber_RegExMatchFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, HotelRhetos.PhoneNumber_RegExMatchFilter/*FilterByInfo AdditionalParametersType HotelRhetos.Guest.'HotelRhetos.PhoneNumber_RegExMatchFilter'*/, HotelRhetos.Guest[]> filter_Function =
+                (repository, parameter) => repository.HotelRhetos.Guest.Filter(repository.HotelRhetos.Guest.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument HotelRhetos.Guest.'HotelRhetos.PhoneNumber_RegExMatchFilter'*/);
+        }
+
+        public global::HotelRhetos.Guest[] Filter(HotelRhetos.Email_RegExMatchFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, HotelRhetos.Email_RegExMatchFilter/*FilterByInfo AdditionalParametersType HotelRhetos.Guest.'HotelRhetos.Email_RegExMatchFilter'*/, HotelRhetos.Guest[]> filter_Function =
+                (repository, parameter) => repository.HotelRhetos.Guest.Filter(repository.HotelRhetos.Guest.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument HotelRhetos.Guest.'HotelRhetos.Email_RegExMatchFilter'*/);
+        }
+
+        public global::HotelRhetos.Guest[] Filter(HotelRhetos.FirstName_MaxLengthFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, HotelRhetos.FirstName_MaxLengthFilter/*FilterByInfo AdditionalParametersType HotelRhetos.Guest.'HotelRhetos.FirstName_MaxLengthFilter'*/, HotelRhetos.Guest[]> filter_Function =
+                (repository, parameter) => repository.HotelRhetos.Guest.Filter(repository.HotelRhetos.Guest.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument HotelRhetos.Guest.'HotelRhetos.FirstName_MaxLengthFilter'*/);
+        }
+
+        public global::HotelRhetos.Guest[] Filter(HotelRhetos.FirstName_MinLengthFilter filter_Parameter)
+        {
+            Func<Common.DomRepository, HotelRhetos.FirstName_MinLengthFilter/*FilterByInfo AdditionalParametersType HotelRhetos.Guest.'HotelRhetos.FirstName_MinLengthFilter'*/, HotelRhetos.Guest[]> filter_Function =
+                (repository, parameter) => repository.HotelRhetos.Guest.Filter(repository.HotelRhetos.Guest.Query(), parameter).ToArray();
+
+            return filter_Function(_domRepository, filter_Parameter/*FilterByInfo AdditionalParametersArgument HotelRhetos.Guest.'HotelRhetos.FirstName_MinLengthFilter'*/);
         }
 
         /*DataStructureInfo RepositoryMembers HotelRhetos.Guest*/
@@ -1019,6 +1476,13 @@ namespace HotelRhetos._Helper
 
             /*DataStructureInfo WritableOrm OldDataLoaded HotelRhetos.Service*/
 
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.Name == null || string.IsNullOrWhiteSpace(item.Name) /*RequiredPropertyInfo OrCondition HotelRhetos.Service.Name*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "HotelRhetos.Service", "Name" },
+                        "DataStructure:HotelRhetos.Service,ID:" + invalid.ID.ToString() + ",Property:Name", null);
+            }
             /*DataStructureInfo WritableOrm ProcessedOldData HotelRhetos.Service*/
 
             DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
@@ -1060,6 +1524,8 @@ namespace HotelRhetos._Helper
         		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
         		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"HotelRhetos.InvoiceItem", @"ServiceID", @"FK_InvoiceItem_Service_ServiceID"))
                     ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.InvoiceItem,Property:ServiceID,Referenced:HotelRhetos.Service";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"HotelRhetos.Service", @"IX_Service_Name"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Service,Property:Name";
                 /*DataStructureInfo WritableOrm OnDatabaseError HotelRhetos.Service*/
                 if (checkUserPermissions)
                     Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "HotelRhetos.Service");
@@ -1105,53 +1571,53 @@ namespace HotelRhetos._Helper
         /*DataStructureInfo RepositoryMembers HotelRhetos.Service*/
     }
 
-    /*DataStructureInfo RepositoryAttributes HotelRhetos.Reservation*/
-    public class Reservation_Repository : /*DataStructureInfo OverrideBaseType HotelRhetos.Reservation*/ Common.OrmRepositoryBase<Common.Queryable.HotelRhetos_Reservation, HotelRhetos.Reservation> // Common.QueryableRepositoryBase<Common.Queryable.HotelRhetos_Reservation, HotelRhetos.Reservation> // Common.ReadableRepositoryBase<HotelRhetos.Reservation> // global::Common.RepositoryBase
-        , IWritableRepository<HotelRhetos.Reservation>, IValidateRepository/*DataStructureInfo RepositoryInterface HotelRhetos.Reservation*/
+    /*DataStructureInfo RepositoryAttributes HotelRhetos.Reservations*/
+    public class Reservations_Repository : /*DataStructureInfo OverrideBaseType HotelRhetos.Reservations*/ Common.OrmRepositoryBase<Common.Queryable.HotelRhetos_Reservations, HotelRhetos.Reservations> // Common.QueryableRepositoryBase<Common.Queryable.HotelRhetos_Reservations, HotelRhetos.Reservations> // Common.ReadableRepositoryBase<HotelRhetos.Reservations> // global::Common.RepositoryBase
+        , IWritableRepository<HotelRhetos.Reservations>, IValidateRepository/*DataStructureInfo RepositoryInterface HotelRhetos.Reservations*/
     {
         private readonly Rhetos.Utilities.ISqlUtility _sqlUtility;
-        /*DataStructureInfo RepositoryPrivateMembers HotelRhetos.Reservation*/
+        /*DataStructureInfo RepositoryPrivateMembers HotelRhetos.Reservations*/
 
-        public Reservation_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments HotelRhetos.Reservation*/)
+        public Reservations_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext, Rhetos.Utilities.ISqlUtility _sqlUtility/*DataStructureInfo RepositoryConstructorArguments HotelRhetos.Reservations*/)
         {
             _domRepository = domRepository;
             _executionContext = executionContext;
             this._sqlUtility = _sqlUtility;
-            /*DataStructureInfo RepositoryConstructorCode HotelRhetos.Reservation*/
+            /*DataStructureInfo RepositoryConstructorCode HotelRhetos.Reservations*/
         }
 
         [Obsolete("Use Load() or Query() method.")]
-        public override global::HotelRhetos.Reservation[] All()
+        public override global::HotelRhetos.Reservations[] All()
         {
             return Query().ToSimple().ToArray();
         }
 
-        public override IQueryable<Common.Queryable.HotelRhetos_Reservation> Query()
+        public override IQueryable<Common.Queryable.HotelRhetos_Reservations> Query()
         {
-            /*DataStructureInfo RepositoryBeforeQuery HotelRhetos.Reservation*/
-            return _executionContext.EntityFrameworkContext.HotelRhetos_Reservation.AsNoTracking();
+            /*DataStructureInfo RepositoryBeforeQuery HotelRhetos.Reservations*/
+            return _executionContext.EntityFrameworkContext.HotelRhetos_Reservations.AsNoTracking();
         }
 
-        public void Save(IEnumerable<HotelRhetos.Reservation> insertedNew, IEnumerable<HotelRhetos.Reservation> updatedNew, IEnumerable<HotelRhetos.Reservation> deletedIds, bool checkUserPermissions = false)
+        public void Save(IEnumerable<HotelRhetos.Reservations> insertedNew, IEnumerable<HotelRhetos.Reservations> updatedNew, IEnumerable<HotelRhetos.Reservations> deletedIds, bool checkUserPermissions = false)
         {
             if (!DomHelper.CleanUpSaveMethodArguments(ref insertedNew, ref updatedNew, ref deletedIds))
                 return;
 
-            /*DataStructureInfo WritableOrm ClearContext HotelRhetos.Reservation*/
+            /*DataStructureInfo WritableOrm ClearContext HotelRhetos.Reservations*/
 
-            /*DataStructureInfo WritableOrm ArgumentValidation HotelRhetos.Reservation*/
+            /*DataStructureInfo WritableOrm ArgumentValidation HotelRhetos.Reservations*/
 
-            /*DataStructureInfo WritableOrm Initialization HotelRhetos.Reservation*/
+            /*DataStructureInfo WritableOrm Initialization HotelRhetos.Reservations*/
 
             // Using old data, including lazy loading of navigation properties:
-            IEnumerable<Common.Queryable.HotelRhetos_Reservation> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.HotelRhetos_Reservation>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
-            IEnumerable<Common.Queryable.HotelRhetos_Reservation> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
-            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.HotelRhetos_Reservation>)updated, updatedNew.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.HotelRhetos_Reservations> deleted = this.Query(deletedIds.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.HotelRhetos_Reservations>)deleted, deletedIds.Select(item => item.ID), item => item.ID);
+            IEnumerable<Common.Queryable.HotelRhetos_Reservations> updated = this.Query(updatedNew.Select(item => item.ID)).ToList();
+            Rhetos.Utilities.Graph.SortByGivenOrder((List<Common.Queryable.HotelRhetos_Reservations>)updated, updatedNew.Select(item => item.ID), item => item.ID);
 
-            /*DataStructureInfo WritableOrm OldDataLoaded HotelRhetos.Reservation*/
+            /*DataStructureInfo WritableOrm OldDataLoaded HotelRhetos.Reservations*/
 
-            /*DataStructureInfo WritableOrm ProcessedOldData HotelRhetos.Reservation*/
+            /*DataStructureInfo WritableOrm ProcessedOldData HotelRhetos.Reservations*/
 
             DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
             try
@@ -1179,7 +1645,7 @@ namespace HotelRhetos._Helper
                 if (insertedNew.Count() > 0)
                 {
                     saveOperation = DomHelper.SaveOperation.Insert;
-                    _executionContext.EntityFrameworkContext.HotelRhetos_Reservation.AddRange(insertedNew.Select(item => item.ToNavigation()));
+                    _executionContext.EntityFrameworkContext.HotelRhetos_Reservations.AddRange(insertedNew.Select(item => item.ToNavigation()));
                     _executionContext.EntityFrameworkContext.SaveChanges();
                 }
 
@@ -1190,15 +1656,15 @@ namespace HotelRhetos._Helper
             {
                 DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
         		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"HotelRhetos.Guest", @"ID", @"FK_Reservation_Guest_GuestID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Reservation,Property:GuestID,Referenced:HotelRhetos.Guest";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"HotelRhetos.Room", @"ID", @"FK_Reservation_Room_RoomID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Reservation,Property:RoomID,Referenced:HotelRhetos.Room";
-                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"HotelRhetos.Invoice", @"ReservationID", @"FK_Invoice_Reservation_ReservationID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Invoice,Property:ReservationID,Referenced:HotelRhetos.Reservation";
-                /*DataStructureInfo WritableOrm OnDatabaseError HotelRhetos.Reservation*/
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"HotelRhetos.Guest", @"ID", @"FK_Reservations_Guest_GuestID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Reservations,Property:GuestID,Referenced:HotelRhetos.Guest";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"HotelRhetos.Room", @"ID", @"FK_Reservations_Room_RoomID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Reservations,Property:RoomID,Referenced:HotelRhetos.Room";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"HotelRhetos.Invoice", @"ReservationsID", @"FK_Invoice_Reservations_ReservationsID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Invoice,Property:ReservationsID,Referenced:HotelRhetos.Reservations";
+                /*DataStructureInfo WritableOrm OnDatabaseError HotelRhetos.Reservations*/
                 if (checkUserPermissions)
-                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "HotelRhetos.Reservation");
+                    Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "HotelRhetos.Reservations");
 
                 if (interpretedException != null)
         			Rhetos.Utilities.ExceptionsUtility.Rethrow(interpretedException);
@@ -1210,18 +1676,18 @@ namespace HotelRhetos._Helper
 
             deleted = null;
             updated = this.Query(updatedNew.Select(item => item.ID));
-            IEnumerable<Common.Queryable.HotelRhetos_Reservation> inserted = this.Query(insertedNew.Select(item => item.ID));
+            IEnumerable<Common.Queryable.HotelRhetos_Reservations> inserted = this.Query(insertedNew.Select(item => item.ID));
 
             bool allEffectsCompleted = false;
             try
             {
-                /*DataStructureInfo WritableOrm OnSaveTag1 HotelRhetos.Reservation*/
+                /*DataStructureInfo WritableOrm OnSaveTag1 HotelRhetos.Reservations*/
 
-                /*DataStructureInfo WritableOrm OnSaveTag2 HotelRhetos.Reservation*/
+                /*DataStructureInfo WritableOrm OnSaveTag2 HotelRhetos.Reservations*/
 
-                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "HotelRhetos.Reservation");
+                Rhetos.Dom.DefaultConcepts.InvalidDataMessage.ValidateOnSave(insertedNew, updatedNew, this, "HotelRhetos.Reservations");
 
-                /*DataStructureInfo WritableOrm AfterSave HotelRhetos.Reservation*/
+                /*DataStructureInfo WritableOrm AfterSave HotelRhetos.Reservations*/
 
                 allEffectsCompleted = true;
             }
@@ -1234,11 +1700,11 @@ namespace HotelRhetos._Helper
 
         public IEnumerable<Rhetos.Dom.DefaultConcepts.InvalidDataMessage> Validate(IList<Guid> ids, bool onSave)
         {
-            /*DataStructureInfo WritableOrm OnSaveValidate HotelRhetos.Reservation*/
+            /*DataStructureInfo WritableOrm OnSaveValidate HotelRhetos.Reservations*/
             yield break;
         }
 
-        /*DataStructureInfo RepositoryMembers HotelRhetos.Reservation*/
+        /*DataStructureInfo RepositoryMembers HotelRhetos.Reservations*/
     }
 
     /*DataStructureInfo RepositoryAttributes HotelRhetos.Invoice*/
@@ -1340,8 +1806,8 @@ namespace HotelRhetos._Helper
             {
                 DomHelper.ThrowIfSavingNonexistentId(saveException, checkUserPermissions, saveOperation);
         		Rhetos.RhetosException interpretedException = _sqlUtility.InterpretSqlException(saveException);
-        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"HotelRhetos.Reservation", @"ID", @"FK_Invoice_Reservation_ReservationID"))
-                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Invoice,Property:ReservationID,Referenced:HotelRhetos.Reservation";
+        		if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"HotelRhetos.Reservations", @"ID", @"FK_Invoice_Reservations_ReservationsID"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.Invoice,Property:ReservationsID,Referenced:HotelRhetos.Reservations";
                 if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnDelete(interpretedException, @"HotelRhetos.InvoiceItem", @"InvoiceID", @"FK_InvoiceItem_Invoice_InvoiceID"))
                     ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.InvoiceItem,Property:InvoiceID,Referenced:HotelRhetos.Invoice";
                 /*DataStructureInfo WritableOrm OnDatabaseError HotelRhetos.Invoice*/
@@ -1435,6 +1901,13 @@ namespace HotelRhetos._Helper
 
             /*DataStructureInfo WritableOrm OldDataLoaded HotelRhetos.InvoiceItem*/
 
+            {
+                var invalid = insertedNew.Concat(updatedNew).FirstOrDefault(item => item.ServiceID == null /*RequiredPropertyInfo OrCondition HotelRhetos.InvoiceItem.Service*/);
+                if (invalid != null)
+                    throw new Rhetos.UserException("It is not allowed to enter {0} because the required property {1} is not set.",
+                        new[] { "HotelRhetos.InvoiceItem", "Service" },
+                        "DataStructure:HotelRhetos.InvoiceItem,ID:" + invalid.ID.ToString() + ",Property:ServiceID", null);
+            }
             /*DataStructureInfo WritableOrm ProcessedOldData HotelRhetos.InvoiceItem*/
 
             DomHelper.SaveOperation saveOperation = DomHelper.SaveOperation.None;
@@ -1478,6 +1951,8 @@ namespace HotelRhetos._Helper
                     ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.InvoiceItem,Property:ServiceID,Referenced:HotelRhetos.Service";
                 if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsReferenceErrorOnInsertUpdate(interpretedException, @"HotelRhetos.Invoice", @"ID", @"FK_InvoiceItem_Invoice_InvoiceID"))
                     ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.InvoiceItem,Property:InvoiceID,Referenced:HotelRhetos.Invoice";
+                if (interpretedException is Rhetos.UserException && Rhetos.Utilities.MsSqlUtility.IsUniqueError(interpretedException, @"HotelRhetos.InvoiceItem", @"IX_InvoiceItem_Invoice_Service"))
+                    ((Rhetos.UserException)interpretedException).SystemMessage = @"DataStructure:HotelRhetos.InvoiceItem,Property:Invoice Service";
                 /*DataStructureInfo WritableOrm OnDatabaseError HotelRhetos.InvoiceItem*/
                 if (checkUserPermissions)
                     Rhetos.Utilities.MsSqlUtility.ThrowIfPrimaryKeyErrorOnInsert(interpretedException, "HotelRhetos.InvoiceItem");
@@ -1562,6 +2037,75 @@ namespace HotelRhetos._Helper
         }
 
         /*DataStructureInfo RepositoryMembers HotelRhetos.InvoiceItem*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes HotelRhetos.RomNumberOfReservations*/
+    public class RomNumberOfReservations_Repository : /*DataStructureInfo OverrideBaseType HotelRhetos.RomNumberOfReservations*/ Common.OrmRepositoryBase<Common.Queryable.HotelRhetos_RomNumberOfReservations, HotelRhetos.RomNumberOfReservations> // Common.QueryableRepositoryBase<Common.Queryable.HotelRhetos_RomNumberOfReservations, HotelRhetos.RomNumberOfReservations> // Common.ReadableRepositoryBase<HotelRhetos.RomNumberOfReservations> // global::Common.RepositoryBase
+        /*DataStructureInfo RepositoryInterface HotelRhetos.RomNumberOfReservations*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers HotelRhetos.RomNumberOfReservations*/
+
+        public RomNumberOfReservations_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments HotelRhetos.RomNumberOfReservations*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode HotelRhetos.RomNumberOfReservations*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::HotelRhetos.RomNumberOfReservations[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.HotelRhetos_RomNumberOfReservations> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery HotelRhetos.RomNumberOfReservations*/
+            return _executionContext.EntityFrameworkContext.HotelRhetos_RomNumberOfReservations.AsNoTracking();
+        }
+
+        /*DataStructureInfo RepositoryMembers HotelRhetos.RomNumberOfReservations*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes HotelRhetos.RoomGrid*/
+    public class RoomGrid_Repository : /*DataStructureInfo OverrideBaseType HotelRhetos.RoomGrid*/ Common.OrmRepositoryBase<Common.Queryable.HotelRhetos_RoomGrid, HotelRhetos.RoomGrid> // Common.QueryableRepositoryBase<Common.Queryable.HotelRhetos_RoomGrid, HotelRhetos.RoomGrid> // Common.ReadableRepositoryBase<HotelRhetos.RoomGrid> // global::Common.RepositoryBase
+        /*DataStructureInfo RepositoryInterface HotelRhetos.RoomGrid*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers HotelRhetos.RoomGrid*/
+
+        public RoomGrid_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments HotelRhetos.RoomGrid*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode HotelRhetos.RoomGrid*/
+        }
+
+        [Obsolete("Use Load() or Query() method.")]
+        public override global::HotelRhetos.RoomGrid[] All()
+        {
+            return Query().ToSimple().ToArray();
+        }
+
+        public override IQueryable<Common.Queryable.HotelRhetos_RoomGrid> Query()
+        {
+            /*DataStructureInfo RepositoryBeforeQuery HotelRhetos.RoomGrid*/
+            return Query(_domRepository.HotelRhetos.Room.Query());
+        }
+
+        public IQueryable<Common.Queryable.HotelRhetos_RoomGrid> Query(IQueryable<Common.Queryable.HotelRhetos_Room> source)
+        {
+            return source.Select(item => new Common.Queryable.HotelRhetos_RoomGrid
+                {
+                    ID = item.ID,
+                    Base = item,
+                    RoomName = item.Name,
+                    HotelName = item.Hotel.Name,
+                    NumberOfReservations = item.Extension_RomNumberOfReservations.NumberOfReservations,
+                    /*BrowseDataStructureInfo BrowseProperties HotelRhetos.RoomGrid*/
+                });
+        }
+
+        /*DataStructureInfo RepositoryMembers HotelRhetos.RoomGrid*/
     }
 
     /*ModuleInfo HelperNamespaceMembers HotelRhetos*/

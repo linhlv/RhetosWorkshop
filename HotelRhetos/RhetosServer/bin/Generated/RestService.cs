@@ -91,9 +91,11 @@ namespace Rhetos.Rest
             builder.RegisterType<RestServiceHotelRhetosRoomType>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceHotelRhetosGuest>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceHotelRhetosService>().InstancePerLifetimeScope();
-            builder.RegisterType<RestServiceHotelRhetosReservation>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceHotelRhetosReservations>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceHotelRhetosInvoice>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceHotelRhetosInvoiceItem>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceHotelRhetosRomNumberOfReservations>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceHotelRhetosRoomGrid>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonAutoCodeCache>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonFilterId>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonKeepSynchronizedMetadata>().InstancePerLifetimeScope();
@@ -134,12 +136,16 @@ namespace Rhetos.Rest
                 new RestServiceHostFactory(), typeof(RestServiceHotelRhetosGuest)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/HotelRhetos/Service", 
                 new RestServiceHostFactory(), typeof(RestServiceHotelRhetosService)));
-            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/HotelRhetos/Reservation", 
-                new RestServiceHostFactory(), typeof(RestServiceHotelRhetosReservation)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/HotelRhetos/Reservations", 
+                new RestServiceHostFactory(), typeof(RestServiceHotelRhetosReservations)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/HotelRhetos/Invoice", 
                 new RestServiceHostFactory(), typeof(RestServiceHotelRhetosInvoice)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/HotelRhetos/InvoiceItem", 
                 new RestServiceHostFactory(), typeof(RestServiceHotelRhetosInvoiceItem)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/HotelRhetos/RomNumberOfReservations", 
+                new RestServiceHostFactory(), typeof(RestServiceHotelRhetosRomNumberOfReservations)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/HotelRhetos/RoomGrid", 
+                new RestServiceHostFactory(), typeof(RestServiceHotelRhetosRoomGrid)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Common/AutoCodeCache", 
                 new RestServiceHostFactory(), typeof(RestServiceCommonAutoCodeCache)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Common/FilterId", 
@@ -204,6 +210,10 @@ namespace Rhetos.Rest
     
         public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
             {
+                Tuple.Create("HotelRhetos.Name_MaxLengthFilter", typeof(HotelRhetos.Name_MaxLengthFilter)),
+                Tuple.Create("Name_MaxLengthFilter", typeof(HotelRhetos.Name_MaxLengthFilter)),
+                Tuple.Create("HotelRhetos.Name_MinLengthFilter", typeof(HotelRhetos.Name_MinLengthFilter)),
+                Tuple.Create("Name_MinLengthFilter", typeof(HotelRhetos.Name_MinLengthFilter)),
                 /*DataStructureInfo FilterTypes HotelRhetos.Hotel*/
             }
             .GroupBy(typeName => typeName.Item1)
@@ -315,6 +325,10 @@ namespace Rhetos.Rest
     
         public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
             {
+                Tuple.Create("HotelRhetos.Name_MaxLengthFilter", typeof(HotelRhetos.Name_MaxLengthFilter)),
+                Tuple.Create("Name_MaxLengthFilter", typeof(HotelRhetos.Name_MaxLengthFilter)),
+                Tuple.Create("HotelRhetos.Name_MinLengthFilter", typeof(HotelRhetos.Name_MinLengthFilter)),
+                Tuple.Create("Name_MinLengthFilter", typeof(HotelRhetos.Name_MinLengthFilter)),
                 /*DataStructureInfo FilterTypes HotelRhetos.Room*/
             }
             .GroupBy(typeName => typeName.Item1)
@@ -426,6 +440,10 @@ namespace Rhetos.Rest
     
         public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
             {
+                Tuple.Create("HotelRhetos.Name_MaxLengthFilter", typeof(HotelRhetos.Name_MaxLengthFilter)),
+                Tuple.Create("Name_MaxLengthFilter", typeof(HotelRhetos.Name_MaxLengthFilter)),
+                Tuple.Create("HotelRhetos.Name_MinLengthFilter", typeof(HotelRhetos.Name_MinLengthFilter)),
+                Tuple.Create("Name_MinLengthFilter", typeof(HotelRhetos.Name_MinLengthFilter)),
                 /*DataStructureInfo FilterTypes HotelRhetos.RoomType*/
             }
             .GroupBy(typeName => typeName.Item1)
@@ -537,6 +555,14 @@ namespace Rhetos.Rest
     
         public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
             {
+                Tuple.Create("HotelRhetos.PhoneNumber_RegExMatchFilter", typeof(HotelRhetos.PhoneNumber_RegExMatchFilter)),
+                Tuple.Create("PhoneNumber_RegExMatchFilter", typeof(HotelRhetos.PhoneNumber_RegExMatchFilter)),
+                Tuple.Create("HotelRhetos.Email_RegExMatchFilter", typeof(HotelRhetos.Email_RegExMatchFilter)),
+                Tuple.Create("Email_RegExMatchFilter", typeof(HotelRhetos.Email_RegExMatchFilter)),
+                Tuple.Create("HotelRhetos.FirstName_MaxLengthFilter", typeof(HotelRhetos.FirstName_MaxLengthFilter)),
+                Tuple.Create("FirstName_MaxLengthFilter", typeof(HotelRhetos.FirstName_MaxLengthFilter)),
+                Tuple.Create("HotelRhetos.FirstName_MinLengthFilter", typeof(HotelRhetos.FirstName_MinLengthFilter)),
+                Tuple.Create("FirstName_MinLengthFilter", typeof(HotelRhetos.FirstName_MinLengthFilter)),
                 /*DataStructureInfo FilterTypes HotelRhetos.Guest*/
             }
             .GroupBy(typeName => typeName.Item1)
@@ -746,20 +772,20 @@ namespace Rhetos.Rest
     
     [System.ServiceModel.ServiceContract]
     [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
-    public class RestServiceHotelRhetosReservation
+    public class RestServiceHotelRhetosReservations
     {
         private ServiceUtility _serviceUtility;
-        /*DataStructureInfo AdditionalPropertyInitialization HotelRhetos.Reservation*/
+        /*DataStructureInfo AdditionalPropertyInitialization HotelRhetos.Reservations*/
 
-        public RestServiceHotelRhetosReservation(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter HotelRhetos.Reservation*/)
+        public RestServiceHotelRhetosReservations(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter HotelRhetos.Reservations*/)
         {
             _serviceUtility = serviceUtility;
-            /*DataStructureInfo AdditionalPropertyConstructorSetProperties HotelRhetos.Reservation*/
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties HotelRhetos.Reservations*/
         }
     
         public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
             {
-                /*DataStructureInfo FilterTypes HotelRhetos.Reservation*/
+                /*DataStructureInfo FilterTypes HotelRhetos.Reservations*/
             }
             .GroupBy(typeName => typeName.Item1)
             .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
@@ -767,11 +793,11 @@ namespace Rhetos.Rest
         // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
         [OperationContract]
         [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsResult<HotelRhetos.Reservation> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        public RecordsResult<HotelRhetos.Reservations> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
         {
-            var data = _serviceUtility.GetData<HotelRhetos.Reservation>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+            var data = _serviceUtility.GetData<HotelRhetos.Reservations>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
                 readRecords: true, readTotalCount: false);
-            return new RecordsResult<HotelRhetos.Reservation> { Records = data.Records };
+            return new RecordsResult<HotelRhetos.Reservations> { Records = data.Records };
         }
 
         [Obsolete]
@@ -779,7 +805,7 @@ namespace Rhetos.Rest
         [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
         {
-            var data = _serviceUtility.GetData<HotelRhetos.Reservation>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+            var data = _serviceUtility.GetData<HotelRhetos.Reservations>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
                 readRecords: false, readTotalCount: true);
             return new CountResult { TotalRecords = data.TotalCount };
         }
@@ -789,7 +815,7 @@ namespace Rhetos.Rest
         [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
         {
-            var data = _serviceUtility.GetData<HotelRhetos.Reservation>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+            var data = _serviceUtility.GetData<HotelRhetos.Reservations>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
                 readRecords: false, readTotalCount: true);
             return new TotalCountResult { TotalCount = data.TotalCount };
         }
@@ -797,17 +823,17 @@ namespace Rhetos.Rest
         // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
         [OperationContract]
         [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public RecordsAndTotalCountResult<HotelRhetos.Reservation> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        public RecordsAndTotalCountResult<HotelRhetos.Reservations> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
         {
-            return _serviceUtility.GetData<HotelRhetos.Reservation>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+            return _serviceUtility.GetData<HotelRhetos.Reservations>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
                 readRecords: true, readTotalCount: true);
         }
 
         [OperationContract]
         [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public HotelRhetos.Reservation GetById(string id)
+        public HotelRhetos.Reservations GetById(string id)
         {
-            var result = _serviceUtility.GetDataById<HotelRhetos.Reservation>(id);
+            var result = _serviceUtility.GetDataById<HotelRhetos.Reservations>(id);
             if (result == null)
                 throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
             return result;
@@ -816,7 +842,7 @@ namespace Rhetos.Rest
         
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public InsertDataResult InsertHotelRhetosReservation(HotelRhetos.Reservation entity)
+        public InsertDataResult InsertHotelRhetosReservations(HotelRhetos.Reservations entity)
         {
             if (Guid.Empty == entity.ID)
                 entity.ID = Guid.NewGuid();
@@ -827,7 +853,7 @@ namespace Rhetos.Rest
 
         [OperationContract]
         [WebInvoke(Method = "PUT", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void UpdateHotelRhetosReservation(string id, HotelRhetos.Reservation entity)
+        public void UpdateHotelRhetosReservations(string id, HotelRhetos.Reservations entity)
         {
             Guid guid;
             if (!Guid.TryParse(id, out guid))
@@ -842,17 +868,17 @@ namespace Rhetos.Rest
 
         [OperationContract]
         [WebInvoke(Method = "DELETE", UriTemplate = "{id}", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-        public void DeleteHotelRhetosReservation(string id)
+        public void DeleteHotelRhetosReservations(string id)
         {
             Guid guid;
             if (!Guid.TryParse(id, out guid))
                 throw new Rhetos.LegacyClientException("Invalid format of GUID parametar 'ID'.");
-            var entity = new HotelRhetos.Reservation { ID = guid };
+            var entity = new HotelRhetos.Reservations { ID = guid };
 
             _serviceUtility.DeleteData(entity);
         }
 
-/*DataStructureInfo AdditionalOperations HotelRhetos.Reservation*/
+/*DataStructureInfo AdditionalOperations HotelRhetos.Reservations*/
     }
     
     [System.ServiceModel.ServiceContract]
@@ -1077,6 +1103,150 @@ namespace Rhetos.Rest
         }
 
 /*DataStructureInfo AdditionalOperations HotelRhetos.InvoiceItem*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceHotelRhetosRomNumberOfReservations
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization HotelRhetos.RomNumberOfReservations*/
+
+        public RestServiceHotelRhetosRomNumberOfReservations(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter HotelRhetos.RomNumberOfReservations*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties HotelRhetos.RomNumberOfReservations*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes HotelRhetos.RomNumberOfReservations*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<HotelRhetos.RomNumberOfReservations> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<HotelRhetos.RomNumberOfReservations>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<HotelRhetos.RomNumberOfReservations> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<HotelRhetos.RomNumberOfReservations>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<HotelRhetos.RomNumberOfReservations>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<HotelRhetos.RomNumberOfReservations> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<HotelRhetos.RomNumberOfReservations>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public HotelRhetos.RomNumberOfReservations GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<HotelRhetos.RomNumberOfReservations>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        /*DataStructureInfo AdditionalOperations HotelRhetos.RomNumberOfReservations*/
+    }
+    
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceHotelRhetosRoomGrid
+    {
+        private ServiceUtility _serviceUtility;
+        /*DataStructureInfo AdditionalPropertyInitialization HotelRhetos.RoomGrid*/
+
+        public RestServiceHotelRhetosRoomGrid(ServiceUtility serviceUtility/*DataStructureInfo AdditionalPropertyConstructorParameter HotelRhetos.RoomGrid*/)
+        {
+            _serviceUtility = serviceUtility;
+            /*DataStructureInfo AdditionalPropertyConstructorSetProperties HotelRhetos.RoomGrid*/
+        }
+    
+        public static readonly IDictionary<string, Type[]> FilterTypes = new List<Tuple<string, Type>>
+            {
+                /*DataStructureInfo FilterTypes HotelRhetos.RoomGrid*/
+            }
+            .GroupBy(typeName => typeName.Item1)
+            .ToDictionary(g => g.Key, g => g.Select(typeName => typeName.Item2).Distinct().ToArray());
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsResult<HotelRhetos.RoomGrid> Get(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            var data = _serviceUtility.GetData<HotelRhetos.RoomGrid>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: false);
+            return new RecordsResult<HotelRhetos.RoomGrid> { Records = data.Records };
+        }
+
+        [Obsolete]
+        [OperationContract]
+        [WebGet(UriTemplate = "/Count?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public CountResult GetCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<HotelRhetos.RoomGrid>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new CountResult { TotalRecords = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters).
+        [OperationContract]
+        [WebGet(UriTemplate = "/TotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public TotalCountResult GetTotalCount(string filter, string fparam, string genericfilter, string filters, string sort)
+        {
+            var data = _serviceUtility.GetData<HotelRhetos.RoomGrid>(filter, fparam, genericfilter, filters, FilterTypes, 0, 0, 0, 0, sort,
+                readRecords: false, readTotalCount: true);
+            return new TotalCountResult { TotalCount = data.TotalCount };
+        }
+
+        // [Obsolete] parameters: filter, fparam, genericfilter (use filters), page, psize (use top and skip).
+        [OperationContract]
+        [WebGet(UriTemplate = "/RecordsAndTotalCount?filter={filter}&fparam={fparam}&genericfilter={genericfilter}&filters={filters}&top={top}&skip={skip}&page={page}&psize={psize}&sort={sort}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public RecordsAndTotalCountResult<HotelRhetos.RoomGrid> GetRecordsAndTotalCount(string filter, string fparam, string genericfilter, string filters, int top, int skip, int page, int psize, string sort)
+        {
+            return _serviceUtility.GetData<HotelRhetos.RoomGrid>(filter, fparam, genericfilter, filters, FilterTypes, top, skip, page, psize, sort,
+                readRecords: true, readTotalCount: true);
+        }
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public HotelRhetos.RoomGrid GetById(string id)
+        {
+            var result = _serviceUtility.GetDataById<HotelRhetos.RoomGrid>(id);
+            if (result == null)
+                throw new Rhetos.LegacyClientException("There is no resource of this type with a given ID.") { HttpStatusCode = HttpStatusCode.NotFound, Severe = false };
+            return result;
+        }
+
+        /*DataStructureInfo AdditionalOperations HotelRhetos.RoomGrid*/
     }
     
     [System.ServiceModel.ServiceContract]

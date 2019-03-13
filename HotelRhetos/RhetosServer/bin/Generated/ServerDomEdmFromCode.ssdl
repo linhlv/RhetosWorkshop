@@ -188,9 +188,9 @@
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="TotalAmount" Type="decimal" Precision="28" Scale="10" Nullable="true" />
           <Property Name="Payed" Type="bit" Nullable="true" />
-          <Property Name="ReservationID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_ReservationID, Order: 0 }" Nullable="true" />
+          <Property Name="ReservationsID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_ReservationsID, Order: 0 }" Nullable="true" />
         </EntityType>
-        <EntityType Name="HotelRhetos_Reservation">
+        <EntityType Name="HotelRhetos_Reservations">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -208,6 +208,13 @@
           <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
           <Property Name="HotelID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_HotelID, Order: 0 }" Nullable="true" />
           <Property Name="RoomTypeID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_RoomTypeID, Order: 0 }" Nullable="true" />
+        </EntityType>
+        <EntityType Name="HotelRhetos_RomNumberOfReservations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" customannotation:Index="{ Name: IX_ID, Order: 0 }" Nullable="false" />
+          <Property Name="NumberOfReservations" Type="int" Nullable="true" />
         </EntityType>
         <EntityType Name="HotelRhetos_RoomType">
           <Key>
@@ -366,15 +373,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="HotelRhetos_Reservation_Guest">
+        <Association Name="HotelRhetos_Reservations_Guest">
           <End Role="HotelRhetos_Guest" Type="Self.HotelRhetos_Guest" Multiplicity="0..1" />
-          <End Role="HotelRhetos_Reservation" Type="Self.HotelRhetos_Reservation" Multiplicity="*" />
+          <End Role="HotelRhetos_Reservations" Type="Self.HotelRhetos_Reservations" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HotelRhetos_Guest">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="HotelRhetos_Reservation">
+            <Dependent Role="HotelRhetos_Reservations">
               <PropertyRef Name="GuestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HotelRhetos_RomNumberOfReservations_Base">
+          <End Role="HotelRhetos_Room" Type="Self.HotelRhetos_Room" Multiplicity="1" />
+          <End Role="HotelRhetos_RomNumberOfReservations" Type="Self.HotelRhetos_RomNumberOfReservations" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="HotelRhetos_Room">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HotelRhetos_RomNumberOfReservations">
+              <PropertyRef Name="ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -402,27 +421,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="HotelRhetos_Reservation_Room">
+        <Association Name="HotelRhetos_Reservations_Room">
           <End Role="HotelRhetos_Room" Type="Self.HotelRhetos_Room" Multiplicity="0..1" />
-          <End Role="HotelRhetos_Reservation" Type="Self.HotelRhetos_Reservation" Multiplicity="*" />
+          <End Role="HotelRhetos_Reservations" Type="Self.HotelRhetos_Reservations" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HotelRhetos_Room">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="HotelRhetos_Reservation">
+            <Dependent Role="HotelRhetos_Reservations">
               <PropertyRef Name="RoomID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="HotelRhetos_Invoice_Reservation">
-          <End Role="HotelRhetos_Reservation" Type="Self.HotelRhetos_Reservation" Multiplicity="0..1" />
+        <Association Name="HotelRhetos_Invoice_Reservations">
+          <End Role="HotelRhetos_Reservations" Type="Self.HotelRhetos_Reservations" Multiplicity="0..1" />
           <End Role="HotelRhetos_Invoice" Type="Self.HotelRhetos_Invoice" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="HotelRhetos_Reservation">
+            <Principal Role="HotelRhetos_Reservations">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="HotelRhetos_Invoice">
-              <PropertyRef Name="ReservationID" />
+              <PropertyRef Name="ReservationsID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -470,8 +489,9 @@
           <EntitySet Name="HotelRhetos_Guest" EntityType="Self.HotelRhetos_Guest" Schema="HotelRhetos" Table="Guest" />
           <EntitySet Name="HotelRhetos_Hotel" EntityType="Self.HotelRhetos_Hotel" Schema="HotelRhetos" Table="Hotel" />
           <EntitySet Name="HotelRhetos_Invoice" EntityType="Self.HotelRhetos_Invoice" Schema="HotelRhetos" Table="Invoice" />
-          <EntitySet Name="HotelRhetos_Reservation" EntityType="Self.HotelRhetos_Reservation" Schema="HotelRhetos" Table="Reservation" />
+          <EntitySet Name="HotelRhetos_Reservations" EntityType="Self.HotelRhetos_Reservations" Schema="HotelRhetos" Table="Reservations" />
           <EntitySet Name="HotelRhetos_Room" EntityType="Self.HotelRhetos_Room" Schema="HotelRhetos" Table="Room" />
+          <EntitySet Name="HotelRhetos_RomNumberOfReservations" EntityType="Self.HotelRhetos_RomNumberOfReservations" Schema="HotelRhetos" Table="RomNumberOfReservations" />
           <EntitySet Name="HotelRhetos_RoomType" EntityType="Self.HotelRhetos_RoomType" Schema="HotelRhetos" Table="RoomType" />
           <EntitySet Name="HotelRhetos_InvoiceItem" EntityType="Self.HotelRhetos_InvoiceItem" Schema="HotelRhetos" Table="InvoiceItem" />
           <EntitySet Name="HotelRhetos_Service" EntityType="Self.HotelRhetos_Service" Schema="HotelRhetos" Table="Service" />
@@ -519,9 +539,13 @@
             <End Role="Common_Role" EntitySet="Common_Role" />
             <End Role="Common_RolePermission" EntitySet="Common_RolePermission" />
           </AssociationSet>
-          <AssociationSet Name="HotelRhetos_Reservation_Guest" Association="Self.HotelRhetos_Reservation_Guest">
+          <AssociationSet Name="HotelRhetos_Reservations_Guest" Association="Self.HotelRhetos_Reservations_Guest">
             <End Role="HotelRhetos_Guest" EntitySet="HotelRhetos_Guest" />
-            <End Role="HotelRhetos_Reservation" EntitySet="HotelRhetos_Reservation" />
+            <End Role="HotelRhetos_Reservations" EntitySet="HotelRhetos_Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="HotelRhetos_RomNumberOfReservations_Base" Association="Self.HotelRhetos_RomNumberOfReservations_Base">
+            <End Role="HotelRhetos_Room" EntitySet="HotelRhetos_Room" />
+            <End Role="HotelRhetos_RomNumberOfReservations" EntitySet="HotelRhetos_RomNumberOfReservations" />
           </AssociationSet>
           <AssociationSet Name="HotelRhetos_Room_Hotel" Association="Self.HotelRhetos_Room_Hotel">
             <End Role="HotelRhetos_Hotel" EntitySet="HotelRhetos_Hotel" />
@@ -531,12 +555,12 @@
             <End Role="HotelRhetos_RoomType" EntitySet="HotelRhetos_RoomType" />
             <End Role="HotelRhetos_Room" EntitySet="HotelRhetos_Room" />
           </AssociationSet>
-          <AssociationSet Name="HotelRhetos_Reservation_Room" Association="Self.HotelRhetos_Reservation_Room">
+          <AssociationSet Name="HotelRhetos_Reservations_Room" Association="Self.HotelRhetos_Reservations_Room">
             <End Role="HotelRhetos_Room" EntitySet="HotelRhetos_Room" />
-            <End Role="HotelRhetos_Reservation" EntitySet="HotelRhetos_Reservation" />
+            <End Role="HotelRhetos_Reservations" EntitySet="HotelRhetos_Reservations" />
           </AssociationSet>
-          <AssociationSet Name="HotelRhetos_Invoice_Reservation" Association="Self.HotelRhetos_Invoice_Reservation">
-            <End Role="HotelRhetos_Reservation" EntitySet="HotelRhetos_Reservation" />
+          <AssociationSet Name="HotelRhetos_Invoice_Reservations" Association="Self.HotelRhetos_Invoice_Reservations">
+            <End Role="HotelRhetos_Reservations" EntitySet="HotelRhetos_Reservations" />
             <End Role="HotelRhetos_Invoice" EntitySet="HotelRhetos_Invoice" />
           </AssociationSet>
           <AssociationSet Name="HotelRhetos_InvoiceItem_Invoice" Association="Self.HotelRhetos_InvoiceItem_Invoice">

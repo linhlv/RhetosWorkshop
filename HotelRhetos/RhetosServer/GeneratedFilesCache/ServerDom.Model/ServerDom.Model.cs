@@ -154,32 +154,32 @@ namespace HotelRhetos
         /*DataStructureInfo ClassBody HotelRhetos.Service*/
     }
 
-    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.Reservation*/
-    public class Reservation : EntityBase<HotelRhetos.Reservation>/*Next DataStructureInfo ClassInterace HotelRhetos.Reservation*/
+    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.Reservations*/
+    public class Reservations : EntityBase<HotelRhetos.Reservations>/*Next DataStructureInfo ClassInterace HotelRhetos.Reservations*/
     {
         /// <summary>Converts the simple object to a navigation object, and copies its simple properties. Navigation properties are set to null.</summary>
-        public Common.Queryable.HotelRhetos_Reservation ToNavigation()
+        public Common.Queryable.HotelRhetos_Reservations ToNavigation()
         {
             var item = this;
-            return new Common.Queryable.HotelRhetos_Reservation
+            return new Common.Queryable.HotelRhetos_Reservations
             {
                 ID = item.ID,
                 CheckIn = item.CheckIn,
                 CheckOut = item.CheckOut,
                 GuestID = item.GuestID,
-                RoomID = item.RoomID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Reservation*/
+                RoomID = item.RoomID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Reservations*/
             };
         }
 
-        [DataMember]/*PropertyInfo Attribute HotelRhetos.Reservation.CheckIn*/
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.Reservations.CheckIn*/
         public DateTime? CheckIn { get; set; }
-        [DataMember]/*PropertyInfo Attribute HotelRhetos.Reservation.CheckOut*/
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.Reservations.CheckOut*/
         public DateTime? CheckOut { get; set; }
-        [DataMember]/*PropertyInfo Attribute HotelRhetos.Reservation.GuestID*/
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.Reservations.GuestID*/
         public Guid? GuestID { get; set; }
-        [DataMember]/*PropertyInfo Attribute HotelRhetos.Reservation.RoomID*/
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.Reservations.RoomID*/
         public Guid? RoomID { get; set; }
-        /*DataStructureInfo ClassBody HotelRhetos.Reservation*/
+        /*DataStructureInfo ClassBody HotelRhetos.Reservations*/
     }
 
     [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.Invoice*/
@@ -194,7 +194,7 @@ namespace HotelRhetos
                 ID = item.ID,
                 TotalAmount = item.TotalAmount,
                 Payed = item.Payed,
-                ReservationID = item.ReservationID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Invoice*/
+                ReservationsID = item.ReservationsID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Invoice*/
             };
         }
 
@@ -202,8 +202,8 @@ namespace HotelRhetos
         public decimal? TotalAmount { get; set; }
         [DataMember]/*PropertyInfo Attribute HotelRhetos.Invoice.Payed*/
         public bool? Payed { get; set; }
-        [DataMember]/*PropertyInfo Attribute HotelRhetos.Invoice.ReservationID*/
-        public Guid? ReservationID { get; set; }
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.Invoice.ReservationsID*/
+        public Guid? ReservationsID { get; set; }
         /*DataStructureInfo ClassBody HotelRhetos.Invoice*/
     }
 
@@ -230,6 +230,86 @@ namespace HotelRhetos
         [DataMember]/*PropertyInfo Attribute HotelRhetos.InvoiceItem.InvoiceID*/
         public Guid? InvoiceID { get; set; }
         /*DataStructureInfo ClassBody HotelRhetos.InvoiceItem*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.RomNumberOfReservations*/
+    public class RomNumberOfReservations : EntityBase<HotelRhetos.RomNumberOfReservations>/*Next DataStructureInfo ClassInterace HotelRhetos.RomNumberOfReservations*/
+    {
+        /// <summary>Converts the simple object to a navigation object, and copies its simple properties. Navigation properties are set to null.</summary>
+        public Common.Queryable.HotelRhetos_RomNumberOfReservations ToNavigation()
+        {
+            var item = this;
+            return new Common.Queryable.HotelRhetos_RomNumberOfReservations
+            {
+                ID = item.ID,
+                NumberOfReservations = item.NumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RomNumberOfReservations*/
+            };
+        }
+
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.RomNumberOfReservations.NumberOfReservations*/
+        public int? NumberOfReservations { get; set; }
+        /*DataStructureInfo ClassBody HotelRhetos.RomNumberOfReservations*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.RoomGrid*/
+    public class RoomGrid : EntityBase<HotelRhetos.RoomGrid>/*Next DataStructureInfo ClassInterace HotelRhetos.RoomGrid*/
+    {
+        /// <summary>Converts the simple object to a navigation object, and copies its simple properties. Navigation properties are set to null.</summary>
+        public Common.Queryable.HotelRhetos_RoomGrid ToNavigation()
+        {
+            var item = this;
+            return new Common.Queryable.HotelRhetos_RoomGrid
+            {
+                ID = item.ID,
+                Name = item.Name,
+                HotelName = item.HotelName,
+                Extension_RomNumberOfReservationsNumberOfReservations = item.Extension_RomNumberOfReservationsNumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RoomGrid*/
+            };
+        }
+
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.RoomGrid.Name*/
+        public string Name { get; set; }
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.RoomGrid.HotelName*/
+        public string HotelName { get; set; }
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.RoomGrid.Extension_RomNumberOfReservationsNumberOfReservations*/
+        public int? Extension_RomNumberOfReservationsNumberOfReservations { get; set; }
+        /*DataStructureInfo ClassBody HotelRhetos.RoomGrid*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.PhoneNumber_RegExMatchFilter*/
+    public class PhoneNumber_RegExMatchFilter/*DataStructureInfo ClassInterace HotelRhetos.PhoneNumber_RegExMatchFilter*/
+    {
+        /*DataStructureInfo ClassBody HotelRhetos.PhoneNumber_RegExMatchFilter*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.Email_RegExMatchFilter*/
+    public class Email_RegExMatchFilter/*DataStructureInfo ClassInterace HotelRhetos.Email_RegExMatchFilter*/
+    {
+        /*DataStructureInfo ClassBody HotelRhetos.Email_RegExMatchFilter*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.Name_MaxLengthFilter*/
+    public class Name_MaxLengthFilter/*DataStructureInfo ClassInterace HotelRhetos.Name_MaxLengthFilter*/
+    {
+        /*DataStructureInfo ClassBody HotelRhetos.Name_MaxLengthFilter*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.FirstName_MaxLengthFilter*/
+    public class FirstName_MaxLengthFilter/*DataStructureInfo ClassInterace HotelRhetos.FirstName_MaxLengthFilter*/
+    {
+        /*DataStructureInfo ClassBody HotelRhetos.FirstName_MaxLengthFilter*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.Name_MinLengthFilter*/
+    public class Name_MinLengthFilter/*DataStructureInfo ClassInterace HotelRhetos.Name_MinLengthFilter*/
+    {
+        /*DataStructureInfo ClassBody HotelRhetos.Name_MinLengthFilter*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.FirstName_MinLengthFilter*/
+    public class FirstName_MinLengthFilter/*DataStructureInfo ClassInterace HotelRhetos.FirstName_MinLengthFilter*/
+    {
+        /*DataStructureInfo ClassBody HotelRhetos.FirstName_MinLengthFilter*/
     }
 
     [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.SystemRequiredInvoice*/
@@ -912,6 +992,42 @@ namespace Common.Queryable
             }
         }
 
+        private Common.Queryable.HotelRhetos_RomNumberOfReservations _extension_RomNumberOfReservations;
+
+        /*DataStructureQueryable PropertyAttribute HotelRhetos.Room.Extension_RomNumberOfReservations*/
+        public virtual Common.Queryable.HotelRhetos_RomNumberOfReservations Extension_RomNumberOfReservations
+        {
+            get
+            {
+                /*DataStructureQueryable Getter HotelRhetos.Room.Extension_RomNumberOfReservations*/
+                return _extension_RomNumberOfReservations;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter HotelRhetos.Room.Extension_RomNumberOfReservations*/
+                _extension_RomNumberOfReservations = value;
+            }
+        }
+
+        private Common.Queryable.HotelRhetos_RoomGrid _extension_RoomGrid;
+
+        /*DataStructureQueryable PropertyAttribute HotelRhetos.Room.Extension_RoomGrid*/
+        public virtual Common.Queryable.HotelRhetos_RoomGrid Extension_RoomGrid
+        {
+            get
+            {
+                /*DataStructureQueryable Getter HotelRhetos.Room.Extension_RoomGrid*/
+                return _extension_RoomGrid;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter HotelRhetos.Room.Extension_RoomGrid*/
+                _extension_RoomGrid = value;
+            }
+        }
+
         /*DataStructureInfo QueryableClassMembers HotelRhetos.Room*/
 
         public bool Equals(HotelRhetos_Room other)
@@ -997,39 +1113,39 @@ namespace Common.Queryable
         }
     }
 
-    /*DataStructureInfo QueryableClassAttributes HotelRhetos.Reservation*/
-    public class HotelRhetos_Reservation : global::HotelRhetos.Reservation, IQueryableEntity<HotelRhetos.Reservation>, System.IEquatable<HotelRhetos_Reservation>, IDetachOverride/*DataStructureInfo QueryableClassInterace HotelRhetos.Reservation*/
+    /*DataStructureInfo QueryableClassAttributes HotelRhetos.Reservations*/
+    public class HotelRhetos_Reservations : global::HotelRhetos.Reservations, IQueryableEntity<HotelRhetos.Reservations>, System.IEquatable<HotelRhetos_Reservations>, IDetachOverride/*DataStructureInfo QueryableClassInterace HotelRhetos.Reservations*/
     {
         bool IDetachOverride.Detaching { get; set; }
 
         /// <summary>Converts the object with navigation properties to a simple object with primitive properties.</summary>
-        public HotelRhetos.Reservation ToSimple()
+        public HotelRhetos.Reservations ToSimple()
         {
             var item = this;
-            return new HotelRhetos.Reservation
+            return new HotelRhetos.Reservations
             {
                 ID = item.ID,
                 CheckIn = item.CheckIn,
                 CheckOut = item.CheckOut,
                 GuestID = item.GuestID,
-                RoomID = item.RoomID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Reservation*/
+                RoomID = item.RoomID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Reservations*/
             };
         }
 
         private Common.Queryable.HotelRhetos_Guest _guest;
 
-        /*DataStructureQueryable PropertyAttribute HotelRhetos.Reservation.Guest*/
+        /*DataStructureQueryable PropertyAttribute HotelRhetos.Reservations.Guest*/
         public virtual Common.Queryable.HotelRhetos_Guest Guest
         {
             get
             {
-                /*DataStructureQueryable Getter HotelRhetos.Reservation.Guest*/
+                /*DataStructureQueryable Getter HotelRhetos.Reservations.Guest*/
                 return _guest;
             }
             set
             {
                 if (((IDetachOverride)this).Detaching) return;
-                /*DataStructureQueryable Setter HotelRhetos.Reservation.Guest*/
+                /*DataStructureQueryable Setter HotelRhetos.Reservations.Guest*/
                 _guest = value;
                 GuestID = value != null ? (Guid?)value.ID : null;
             }
@@ -1037,26 +1153,26 @@ namespace Common.Queryable
 
         private Common.Queryable.HotelRhetos_Room _room;
 
-        /*DataStructureQueryable PropertyAttribute HotelRhetos.Reservation.Room*/
+        /*DataStructureQueryable PropertyAttribute HotelRhetos.Reservations.Room*/
         public virtual Common.Queryable.HotelRhetos_Room Room
         {
             get
             {
-                /*DataStructureQueryable Getter HotelRhetos.Reservation.Room*/
+                /*DataStructureQueryable Getter HotelRhetos.Reservations.Room*/
                 return _room;
             }
             set
             {
                 if (((IDetachOverride)this).Detaching) return;
-                /*DataStructureQueryable Setter HotelRhetos.Reservation.Room*/
+                /*DataStructureQueryable Setter HotelRhetos.Reservations.Room*/
                 _room = value;
                 RoomID = value != null ? (Guid?)value.ID : null;
             }
         }
 
-        /*DataStructureInfo QueryableClassMembers HotelRhetos.Reservation*/
+        /*DataStructureInfo QueryableClassMembers HotelRhetos.Reservations*/
 
-        public bool Equals(HotelRhetos_Reservation other)
+        public bool Equals(HotelRhetos_Reservations other)
         {
             return other != null && other.ID == ID;
         }
@@ -1076,26 +1192,26 @@ namespace Common.Queryable
                 ID = item.ID,
                 TotalAmount = item.TotalAmount,
                 Payed = item.Payed,
-                ReservationID = item.ReservationID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Invoice*/
+                ReservationsID = item.ReservationsID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Invoice*/
             };
         }
 
-        private Common.Queryable.HotelRhetos_Reservation _reservation;
+        private Common.Queryable.HotelRhetos_Reservations _reservations;
 
-        /*DataStructureQueryable PropertyAttribute HotelRhetos.Invoice.Reservation*/
-        public virtual Common.Queryable.HotelRhetos_Reservation Reservation
+        /*DataStructureQueryable PropertyAttribute HotelRhetos.Invoice.Reservations*/
+        public virtual Common.Queryable.HotelRhetos_Reservations Reservations
         {
             get
             {
-                /*DataStructureQueryable Getter HotelRhetos.Invoice.Reservation*/
-                return _reservation;
+                /*DataStructureQueryable Getter HotelRhetos.Invoice.Reservations*/
+                return _reservations;
             }
             set
             {
                 if (((IDetachOverride)this).Detaching) return;
-                /*DataStructureQueryable Setter HotelRhetos.Invoice.Reservation*/
-                _reservation = value;
-                ReservationID = value != null ? (Guid?)value.ID : null;
+                /*DataStructureQueryable Setter HotelRhetos.Invoice.Reservations*/
+                _reservations = value;
+                ReservationsID = value != null ? (Guid?)value.ID : null;
             }
         }
 
@@ -1166,6 +1282,94 @@ namespace Common.Queryable
         /*DataStructureInfo QueryableClassMembers HotelRhetos.InvoiceItem*/
 
         public bool Equals(HotelRhetos_InvoiceItem other)
+        {
+            return other != null && other.ID == ID;
+        }
+    }
+
+    /*DataStructureInfo QueryableClassAttributes HotelRhetos.RomNumberOfReservations*/
+    public class HotelRhetos_RomNumberOfReservations : global::HotelRhetos.RomNumberOfReservations, IQueryableEntity<HotelRhetos.RomNumberOfReservations>, System.IEquatable<HotelRhetos_RomNumberOfReservations>, IDetachOverride/*DataStructureInfo QueryableClassInterace HotelRhetos.RomNumberOfReservations*/
+    {
+        bool IDetachOverride.Detaching { get; set; }
+
+        /// <summary>Converts the object with navigation properties to a simple object with primitive properties.</summary>
+        public HotelRhetos.RomNumberOfReservations ToSimple()
+        {
+            var item = this;
+            return new HotelRhetos.RomNumberOfReservations
+            {
+                ID = item.ID,
+                NumberOfReservations = item.NumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RomNumberOfReservations*/
+            };
+        }
+
+        private Common.Queryable.HotelRhetos_Room _base;
+
+        /*DataStructureQueryable PropertyAttribute HotelRhetos.RomNumberOfReservations.Base*/
+        public virtual Common.Queryable.HotelRhetos_Room Base
+        {
+            get
+            {
+                /*DataStructureQueryable Getter HotelRhetos.RomNumberOfReservations.Base*/
+                return _base;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter HotelRhetos.RomNumberOfReservations.Base*/
+                _base = value;
+                ID = value != null ? value.ID : Guid.Empty;
+            }
+        }
+
+        /*DataStructureInfo QueryableClassMembers HotelRhetos.RomNumberOfReservations*/
+
+        public bool Equals(HotelRhetos_RomNumberOfReservations other)
+        {
+            return other != null && other.ID == ID;
+        }
+    }
+
+    /*DataStructureInfo QueryableClassAttributes HotelRhetos.RoomGrid*/
+    public class HotelRhetos_RoomGrid : global::HotelRhetos.RoomGrid, IQueryableEntity<HotelRhetos.RoomGrid>, System.IEquatable<HotelRhetos_RoomGrid>, IDetachOverride/*DataStructureInfo QueryableClassInterace HotelRhetos.RoomGrid*/
+    {
+        bool IDetachOverride.Detaching { get; set; }
+
+        /// <summary>Converts the object with navigation properties to a simple object with primitive properties.</summary>
+        public HotelRhetos.RoomGrid ToSimple()
+        {
+            var item = this;
+            return new HotelRhetos.RoomGrid
+            {
+                ID = item.ID,
+                Name = item.Name,
+                HotelName = item.HotelName,
+                Extension_RomNumberOfReservationsNumberOfReservations = item.Extension_RomNumberOfReservationsNumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RoomGrid*/
+            };
+        }
+
+        private Common.Queryable.HotelRhetos_Room _base;
+
+        /*DataStructureQueryable PropertyAttribute HotelRhetos.RoomGrid.Base*/
+        public virtual Common.Queryable.HotelRhetos_Room Base
+        {
+            get
+            {
+                /*DataStructureQueryable Getter HotelRhetos.RoomGrid.Base*/
+                return _base;
+            }
+            set
+            {
+                if (((IDetachOverride)this).Detaching) return;
+                /*DataStructureQueryable Setter HotelRhetos.RoomGrid.Base*/
+                _base = value;
+                ID = value != null ? value.ID : Guid.Empty;
+            }
+        }
+
+        /*DataStructureInfo QueryableClassMembers HotelRhetos.RoomGrid*/
+
+        public bool Equals(HotelRhetos_RoomGrid other)
         {
             return other != null && other.ID == ID;
         }
@@ -1947,15 +2151,15 @@ namespace Rhetos.Dom.DefaultConcepts
             });
         }
         /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
-        public static IQueryable<HotelRhetos.Reservation> ToSimple(this IQueryable<Common.Queryable.HotelRhetos_Reservation> query)
+        public static IQueryable<HotelRhetos.Reservations> ToSimple(this IQueryable<Common.Queryable.HotelRhetos_Reservations> query)
         {
-            return query.Select(item => new HotelRhetos.Reservation
+            return query.Select(item => new HotelRhetos.Reservations
             {
                 ID = item.ID,
                 CheckIn = item.CheckIn,
                 CheckOut = item.CheckOut,
                 GuestID = item.GuestID,
-                RoomID = item.RoomID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Reservation*/
+                RoomID = item.RoomID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Reservations*/
             });
         }
         /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
@@ -1966,7 +2170,7 @@ namespace Rhetos.Dom.DefaultConcepts
                 ID = item.ID,
                 TotalAmount = item.TotalAmount,
                 Payed = item.Payed,
-                ReservationID = item.ReservationID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Invoice*/
+                ReservationsID = item.ReservationsID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Invoice*/
             });
         }
         /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
@@ -1978,6 +2182,26 @@ namespace Rhetos.Dom.DefaultConcepts
                 Discount = item.Discount,
                 ServiceID = item.ServiceID,
                 InvoiceID = item.InvoiceID/*DataStructureInfo AssignSimpleProperty HotelRhetos.InvoiceItem*/
+            });
+        }
+        /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
+        public static IQueryable<HotelRhetos.RomNumberOfReservations> ToSimple(this IQueryable<Common.Queryable.HotelRhetos_RomNumberOfReservations> query)
+        {
+            return query.Select(item => new HotelRhetos.RomNumberOfReservations
+            {
+                ID = item.ID,
+                NumberOfReservations = item.NumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RomNumberOfReservations*/
+            });
+        }
+        /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>
+        public static IQueryable<HotelRhetos.RoomGrid> ToSimple(this IQueryable<Common.Queryable.HotelRhetos_RoomGrid> query)
+        {
+            return query.Select(item => new HotelRhetos.RoomGrid
+            {
+                ID = item.ID,
+                Name = item.Name,
+                HotelName = item.HotelName,
+                Extension_RomNumberOfReservationsNumberOfReservations = item.Extension_RomNumberOfReservationsNumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RoomGrid*/
             });
         }
         /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>

@@ -119,20 +119,20 @@ namespace Common
             modelBuilder.Ignore<global::HotelRhetos.Service>();
             modelBuilder.Entity<Common.Queryable.HotelRhetos_Service>().Map(m => { m.MapInheritedProperties(); m.ToTable("Service", "HotelRhetos"); });
             modelBuilder.Entity<Common.Queryable.HotelRhetos_Service>().Property(t => t.Price).HasPrecision(28, 10);
-            modelBuilder.Ignore<global::HotelRhetos.Reservation>();
-            modelBuilder.Entity<Common.Queryable.HotelRhetos_Reservation>().Map(m => { m.MapInheritedProperties(); m.ToTable("Reservation", "HotelRhetos"); });
-            modelBuilder.Entity<Common.Queryable.HotelRhetos_Reservation>()
+            modelBuilder.Ignore<global::HotelRhetos.Reservations>();
+            modelBuilder.Entity<Common.Queryable.HotelRhetos_Reservations>().Map(m => { m.MapInheritedProperties(); m.ToTable("Reservations", "HotelRhetos"); });
+            modelBuilder.Entity<Common.Queryable.HotelRhetos_Reservations>()
                 .HasOptional(t => t.Guest).WithMany()
                 .HasForeignKey(t => t.GuestID);
-            modelBuilder.Entity<Common.Queryable.HotelRhetos_Reservation>()
+            modelBuilder.Entity<Common.Queryable.HotelRhetos_Reservations>()
                 .HasOptional(t => t.Room).WithMany()
                 .HasForeignKey(t => t.RoomID);
             modelBuilder.Ignore<global::HotelRhetos.Invoice>();
             modelBuilder.Entity<Common.Queryable.HotelRhetos_Invoice>().Map(m => { m.MapInheritedProperties(); m.ToTable("Invoice", "HotelRhetos"); });
             modelBuilder.Entity<Common.Queryable.HotelRhetos_Invoice>().Property(t => t.TotalAmount).HasPrecision(28, 10);
             modelBuilder.Entity<Common.Queryable.HotelRhetos_Invoice>()
-                .HasOptional(t => t.Reservation).WithMany()
-                .HasForeignKey(t => t.ReservationID);
+                .HasOptional(t => t.Reservations).WithMany()
+                .HasForeignKey(t => t.ReservationsID);
             modelBuilder.Ignore<global::HotelRhetos.InvoiceItem>();
             modelBuilder.Entity<Common.Queryable.HotelRhetos_InvoiceItem>().Map(m => { m.MapInheritedProperties(); m.ToTable("InvoiceItem", "HotelRhetos"); });
             modelBuilder.Entity<Common.Queryable.HotelRhetos_InvoiceItem>().Property(t => t.Discount).HasPrecision(28, 10);
@@ -142,6 +142,9 @@ namespace Common
             modelBuilder.Entity<Common.Queryable.HotelRhetos_InvoiceItem>()
                 .HasOptional(t => t.Invoice).WithMany()
                 .HasForeignKey(t => t.InvoiceID);
+            modelBuilder.Ignore<global::HotelRhetos.RomNumberOfReservations>();
+            modelBuilder.Entity<Common.Queryable.HotelRhetos_RomNumberOfReservations>().Map(m => { m.MapInheritedProperties(); m.ToTable("RomNumberOfReservations", "HotelRhetos"); });
+            modelBuilder.Entity<Common.Queryable.HotelRhetos_RomNumberOfReservations>().HasRequired(t => t.Base).WithOptional(t => t.Extension_RomNumberOfReservations);
             modelBuilder.Ignore<global::Common.AutoCodeCache>();
             modelBuilder.Entity<Common.Queryable.Common_AutoCodeCache>().Map(m => { m.MapInheritedProperties(); m.ToTable("AutoCodeCache", "Common"); });
             modelBuilder.Ignore<global::Common.FilterId>();
@@ -205,6 +208,7 @@ namespace Common
                 .HasOptional(t => t.Claim).WithMany()
                 .HasForeignKey(t => t.ClaimID);
             modelBuilder.Entity<Common.Queryable.Common_Claim>().Ignore(t => t.Extension_MyClaim);
+            modelBuilder.Entity<Common.Queryable.HotelRhetos_Room>().Ignore(t => t.Extension_RoomGrid);
             modelBuilder.Entity<Common.Queryable.Common_LogRelatedItemReader>()
                 .HasOptional(t => t.Log).WithMany()
                 .HasForeignKey(t => t.LogID);
@@ -216,9 +220,10 @@ namespace Common
         public System.Data.Entity.DbSet<Common.Queryable.HotelRhetos_RoomType> HotelRhetos_RoomType { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.HotelRhetos_Guest> HotelRhetos_Guest { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.HotelRhetos_Service> HotelRhetos_Service { get; set; }
-        public System.Data.Entity.DbSet<Common.Queryable.HotelRhetos_Reservation> HotelRhetos_Reservation { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.HotelRhetos_Reservations> HotelRhetos_Reservations { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.HotelRhetos_Invoice> HotelRhetos_Invoice { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.HotelRhetos_InvoiceItem> HotelRhetos_InvoiceItem { get; set; }
+        public System.Data.Entity.DbSet<Common.Queryable.HotelRhetos_RomNumberOfReservations> HotelRhetos_RomNumberOfReservations { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_AutoCodeCache> Common_AutoCodeCache { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_FilterId> Common_FilterId { get; set; }
         public System.Data.Entity.DbSet<Common.Queryable.Common_KeepSynchronizedMetadata> Common_KeepSynchronizedMetadata { get; set; }

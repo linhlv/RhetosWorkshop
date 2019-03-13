@@ -206,13 +206,13 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
                 <ScalarProperty Name="Payed" ColumnName="Payed" />
-                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+                <ScalarProperty Name="ReservationsID" ColumnName="ReservationsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="HotelRhetos_Reservation">
-            <EntityTypeMapping TypeName="Common.HotelRhetos_Reservation">
-              <MappingFragment StoreEntitySet="HotelRhetos_Reservation">
+          <EntitySetMapping Name="HotelRhetos_Reservations">
+            <EntityTypeMapping TypeName="Common.HotelRhetos_Reservations">
+              <MappingFragment StoreEntitySet="HotelRhetos_Reservations">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
                 <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
@@ -228,6 +228,14 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="HotelID" ColumnName="HotelID" />
                 <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelRhetos_RomNumberOfReservations">
+            <EntityTypeMapping TypeName="Common.HotelRhetos_RomNumberOfReservations">
+              <MappingFragment StoreEntitySet="HotelRhetos_RomNumberOfReservations">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NumberOfReservations" ColumnName="NumberOfReservations" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
