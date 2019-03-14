@@ -68,6 +68,7 @@ namespace HotelRhetos
             {
                 ID = item.ID,
                 Name = item.Name,
+                Description = item.Description,
                 HotelID = item.HotelID,
                 RoomTypeID = item.RoomTypeID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Room*/
             };
@@ -75,6 +76,8 @@ namespace HotelRhetos
 
         [DataMember]/*PropertyInfo Attribute HotelRhetos.Room.Name*/
         public string Name { get; set; }
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.Room.Description*/
+        public string Description { get; set; }
         [DataMember]/*PropertyInfo Attribute HotelRhetos.Room.HotelID*/
         public Guid? HotelID { get; set; }
         [DataMember]/*PropertyInfo Attribute HotelRhetos.Room.RoomTypeID*/
@@ -261,19 +264,29 @@ namespace HotelRhetos
             return new Common.Queryable.HotelRhetos_RoomGrid
             {
                 ID = item.ID,
-                Name = item.Name,
+                RoomNumber = item.RoomNumber,
                 HotelName = item.HotelName,
-                Extension_RomNumberOfReservationsNumberOfReservations = item.Extension_RomNumberOfReservationsNumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RoomGrid*/
+                NumberOfReservations = item.NumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RoomGrid*/
             };
         }
 
-        [DataMember]/*PropertyInfo Attribute HotelRhetos.RoomGrid.Name*/
-        public string Name { get; set; }
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.RoomGrid.RoomNumber*/
+        public string RoomNumber { get; set; }
         [DataMember]/*PropertyInfo Attribute HotelRhetos.RoomGrid.HotelName*/
         public string HotelName { get; set; }
-        [DataMember]/*PropertyInfo Attribute HotelRhetos.RoomGrid.Extension_RomNumberOfReservationsNumberOfReservations*/
-        public int? Extension_RomNumberOfReservationsNumberOfReservations { get; set; }
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.RoomGrid.NumberOfReservations*/
+        public int? NumberOfReservations { get; set; }
         /*DataStructureInfo ClassBody HotelRhetos.RoomGrid*/
+    }
+
+    [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.GeneratedRoom*/
+    public class GeneratedRoom/*DataStructureInfo ClassInterace HotelRhetos.GeneratedRoom*/
+    {
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.GeneratedRoom.NumberOfRooms*/
+        public int? NumberOfRooms { get; set; }
+        [DataMember]/*PropertyInfo Attribute HotelRhetos.GeneratedRoom.Description*/
+        public string Description { get; set; }
+        /*DataStructureInfo ClassBody HotelRhetos.GeneratedRoom*/
     }
 
     [DataContract]/*DataStructureInfo ClassAttributes HotelRhetos.PhoneNumber_RegExMatchFilter*/
@@ -949,6 +962,7 @@ namespace Common.Queryable
             {
                 ID = item.ID,
                 Name = item.Name,
+                Description = item.Description,
                 HotelID = item.HotelID,
                 RoomTypeID = item.RoomTypeID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Room*/
             };
@@ -1342,9 +1356,9 @@ namespace Common.Queryable
             return new HotelRhetos.RoomGrid
             {
                 ID = item.ID,
-                Name = item.Name,
+                RoomNumber = item.RoomNumber,
                 HotelName = item.HotelName,
-                Extension_RomNumberOfReservationsNumberOfReservations = item.Extension_RomNumberOfReservationsNumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RoomGrid*/
+                NumberOfReservations = item.NumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RoomGrid*/
             };
         }
 
@@ -2114,6 +2128,7 @@ namespace Rhetos.Dom.DefaultConcepts
             {
                 ID = item.ID,
                 Name = item.Name,
+                Description = item.Description,
                 HotelID = item.HotelID,
                 RoomTypeID = item.RoomTypeID/*DataStructureInfo AssignSimpleProperty HotelRhetos.Room*/
             });
@@ -2199,9 +2214,9 @@ namespace Rhetos.Dom.DefaultConcepts
             return query.Select(item => new HotelRhetos.RoomGrid
             {
                 ID = item.ID,
-                Name = item.Name,
+                RoomNumber = item.RoomNumber,
                 HotelName = item.HotelName,
-                Extension_RomNumberOfReservationsNumberOfReservations = item.Extension_RomNumberOfReservationsNumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RoomGrid*/
+                NumberOfReservations = item.NumberOfReservations/*DataStructureInfo AssignSimpleProperty HotelRhetos.RoomGrid*/
             });
         }
         /// <summary>Converts the objects with navigation properties to simple objects with primitive properties.</summary>

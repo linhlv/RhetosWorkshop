@@ -226,6 +226,7 @@
               <MappingFragment StoreEntitySet="HotelRhetos_Room">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="HotelID" ColumnName="HotelID" />
                 <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
               </MappingFragment>

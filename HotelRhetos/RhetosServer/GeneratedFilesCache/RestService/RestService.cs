@@ -96,6 +96,7 @@ namespace Rhetos.Rest
             builder.RegisterType<RestServiceHotelRhetosInvoiceItem>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceHotelRhetosRomNumberOfReservations>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceHotelRhetosRoomGrid>().InstancePerLifetimeScope();
+            builder.RegisterType<RestServiceHotelRhetosGeneratedRoom>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonAutoCodeCache>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonFilterId>().InstancePerLifetimeScope();
             builder.RegisterType<RestServiceCommonKeepSynchronizedMetadata>().InstancePerLifetimeScope();
@@ -146,6 +147,8 @@ namespace Rhetos.Rest
                 new RestServiceHostFactory(), typeof(RestServiceHotelRhetosRomNumberOfReservations)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/HotelRhetos/RoomGrid", 
                 new RestServiceHostFactory(), typeof(RestServiceHotelRhetosRoomGrid)));
+            System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/HotelRhetos/GeneratedRoom", 
+                new RestServiceHostFactory(), typeof(RestServiceHotelRhetosGeneratedRoom)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Common/AutoCodeCache", 
                 new RestServiceHostFactory(), typeof(RestServiceCommonAutoCodeCache)));
             System.Web.Routing.RouteTable.Routes.Add(new System.ServiceModel.Activation.ServiceRoute("Rest/Common/FilterId", 
@@ -1249,6 +1252,26 @@ namespace Rhetos.Rest
         /*DataStructureInfo AdditionalOperations HotelRhetos.RoomGrid*/
     }
     
+    [System.ServiceModel.ServiceContract]
+    [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
+    public class RestServiceHotelRhetosGeneratedRoom
+    {
+        private ServiceUtility _serviceUtility;
+
+        public RestServiceHotelRhetosGeneratedRoom(ServiceUtility serviceUtility) 
+        {
+            _serviceUtility = serviceUtility;
+        }
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "", BodyStyle = WebMessageBodyStyle.Bare, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        public void ExecuteHotelRhetosGeneratedRoom(HotelRhetos.GeneratedRoom action)
+        {
+            _serviceUtility.Execute<HotelRhetos.GeneratedRoom>(action);
+        }
+    }
+
+
     [System.ServiceModel.ServiceContract]
     [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode = System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Allowed)]
     public class RestServiceCommonAutoCodeCache

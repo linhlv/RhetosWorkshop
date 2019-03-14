@@ -184,6 +184,8 @@ namespace Common
             builder.RegisterType<HotelRhetos._Helper.InvoiceItem_Repository>().Keyed<IRepository>("HotelRhetos.InvoiceItem").InstancePerLifetimeScope();
             builder.RegisterType<HotelRhetos._Helper.RomNumberOfReservations_Repository>().Keyed<IRepository>("HotelRhetos.RomNumberOfReservations").InstancePerLifetimeScope();
             builder.RegisterType<HotelRhetos._Helper.RoomGrid_Repository>().Keyed<IRepository>("HotelRhetos.RoomGrid").InstancePerLifetimeScope();
+            builder.RegisterType<HotelRhetos._Helper.GeneratedRoom_Repository>().Keyed<IRepository>("HotelRhetos.GeneratedRoom").InstancePerLifetimeScope();
+            builder.RegisterType<HotelRhetos._Helper.GeneratedRoom_Repository>().Keyed<IActionRepository>("HotelRhetos.GeneratedRoom").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.AutoCodeCache_Repository>().Keyed<IRepository>("Common.AutoCodeCache").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.FilterId_Repository>().Keyed<IRepository>("Common.FilterId").InstancePerLifetimeScope();
             builder.RegisterType<Common._Helper.KeepSynchronizedMetadata_Repository>().Keyed<IRepository>("Common.KeepSynchronizedMetadata").InstancePerLifetimeScope();
@@ -373,6 +375,9 @@ namespace HotelRhetos._Helper
 
         private RoomGrid_Repository _RoomGrid_Repository;
         public RoomGrid_Repository RoomGrid { get { return _RoomGrid_Repository ?? (_RoomGrid_Repository = (RoomGrid_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"HotelRhetos.RoomGrid")); } }
+
+        private GeneratedRoom_Repository _GeneratedRoom_Repository;
+        public GeneratedRoom_Repository GeneratedRoom { get { return _GeneratedRoom_Repository ?? (_GeneratedRoom_Repository = (GeneratedRoom_Repository)Rhetos.Extensibility.NamedPluginsExtensions.GetPlugin(_repositories, @"HotelRhetos.GeneratedRoom")); } }
 
         /*ModuleInfo RepositoryMembers HotelRhetos*/
     }
@@ -2098,14 +2103,73 @@ namespace HotelRhetos._Helper
                 {
                     ID = item.ID,
                     Base = item,
-                    Name = item.Name,
+                    RoomNumber = item.Name,
                     HotelName = item.Hotel.Name,
-                    Extension_RomNumberOfReservationsNumberOfReservations = item.Extension_RomNumberOfReservations.NumberOfReservations,
+                    NumberOfReservations = item.Extension_RomNumberOfReservations.NumberOfReservations,
                     /*BrowseDataStructureInfo BrowseProperties HotelRhetos.RoomGrid*/
                 });
         }
 
         /*DataStructureInfo RepositoryMembers HotelRhetos.RoomGrid*/
+    }
+
+    /*DataStructureInfo RepositoryAttributes HotelRhetos.GeneratedRoom*/
+    public class GeneratedRoom_Repository : /*DataStructureInfo OverrideBaseType HotelRhetos.GeneratedRoom*/ global::Common.RepositoryBase
+        , IActionRepository/*DataStructureInfo RepositoryInterface HotelRhetos.GeneratedRoom*/
+    {
+        /*DataStructureInfo RepositoryPrivateMembers HotelRhetos.GeneratedRoom*/
+
+        public GeneratedRoom_Repository(Common.DomRepository domRepository, Common.ExecutionContext executionContext/*DataStructureInfo RepositoryConstructorArguments HotelRhetos.GeneratedRoom*/)
+        {
+            _domRepository = domRepository;
+            _executionContext = executionContext;
+            /*DataStructureInfo RepositoryConstructorCode HotelRhetos.GeneratedRoom*/
+        }
+
+        public void Execute(HotelRhetos.GeneratedRoom actionParameter)
+        {
+            Action<HotelRhetos.GeneratedRoom, Common.DomRepository, IUserInfo/*DataStructureInfo AdditionalParametersType HotelRhetos.GeneratedRoom*/> action_Object = (parameter, repository, userInfo) =>
+        {
+            var dbHotel = repository.HotelRhetos.Hotel.Query().FirstOrDefault();
+            var dbRoomType = repository.HotelRhetos.RoomType.Query().FirstOrDefault();
+            var hotelID = dbHotel != null ? dbHotel.ID : new Guid();
+            var roomTypeID = dbRoomType != null ? dbRoomType.ID : new Guid();
+            
+            for (int i = 1; i <= parameter.NumberOfRooms; i++)
+            {
+                var newRoom = new HotelRhetos.Room
+                {
+                    Name = "Room" + i,
+                    HotelID =  hotelID,
+                    RoomTypeID = roomTypeID,
+                    Description = parameter.Description
+                };
+                repository.HotelRhetos.Room.Insert(newRoom);
+            }
+		
+        };
+
+            bool allEffectsCompleted = false;
+            try
+            {
+                /*ActionInfo BeforeAction HotelRhetos.GeneratedRoom*/
+                action_Object(actionParameter, _domRepository, _executionContext.UserInfo/*DataStructureInfo AdditionalParametersArgument HotelRhetos.GeneratedRoom*/);
+                /*ActionInfo AfterAction HotelRhetos.GeneratedRoom*/
+                allEffectsCompleted = true;
+            }
+            finally
+            {
+                if (!allEffectsCompleted)
+                    _executionContext.PersistenceTransaction.DiscardChanges();
+            }
+        }
+
+        void IActionRepository.Execute(object actionParameter)
+        {
+            Execute((HotelRhetos.GeneratedRoom) actionParameter);
+        }
+
+        /*DataStructureInfo RepositoryMembers HotelRhetos.GeneratedRoom*/
     }
 
     /*ModuleInfo HelperNamespaceMembers HotelRhetos*/

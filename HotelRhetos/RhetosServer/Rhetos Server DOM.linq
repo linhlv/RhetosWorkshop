@@ -55,8 +55,8 @@ void Main()
     using (var container = new RhetosTestContainer(commitChanges: false)) // Use this parameter to COMMIT or ROLLBACK the data changes.
     {
         var context = container.Resolve<Common.ExecutionContext>();
-        var repository = context.Repository;
-
+        var repository = context.Repository;		
+		
 		// Query data from the `Common.Claim` table:
 		
 		var claims = repository.Common.Claim.Query()

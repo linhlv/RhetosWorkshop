@@ -220,6 +220,7 @@
           </Key>
           <Property Name="ID" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HotelID" Type="Guid" />
           <Property Name="RoomTypeID" Type="Guid" />
           <NavigationProperty Name="Extension_RomNumberOfReservations" Relationship="Self.HotelRhetos_RomNumberOfReservations_Base" FromRole="HotelRhetos_RomNumberOfReservations_Base_Target" ToRole="HotelRhetos_RomNumberOfReservations_Base_Source" />

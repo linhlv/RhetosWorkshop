@@ -14,4 +14,31 @@ Module HotelRhetos
         Take HotelName 'Hotel.Name';
         Take NumberOfReservations 'Extension_RomNumberOfReservations.NumberOfReservations';
     }
+
+    Action GeneratedRoom
+        '(parameter, repository, userInfo) =>
+        {
+            var dbHotel = repository.HotelRhetos.Hotel.Query().FirstOrDefault();
+            var dbRoomType = repository.HotelRhetos.RoomType.Query().FirstOrDefault();
+            var hotelID = dbHotel != null ? dbHotel.ID : new Guid();
+            var roomTypeID = dbRoomType != null ? dbRoomType.ID : new Guid();
+            var countRoom = repository.HotelRhetos.Room.Query().Count();
+
+            for (int i = 1; i <= parameter.NumberOfRooms; i++)
+            {
+                var newRoom = new HotelRhetos.Room
+                {
+                    Name = "Room" + countRoom + i,
+                    HotelID =  hotelID,
+                    RoomTypeID = roomTypeID,
+                    Description = parameter.Description
+                };
+                repository.HotelRhetos.Room.Insert(newRoom);
+            }
+		
+        }'
+    {
+        Integer NumberOfRooms;
+        LongString Description;
+    }
 }

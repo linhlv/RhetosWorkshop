@@ -9,6 +9,7 @@ Module HotelRhetos
     Entity Room
     {
         ShortString Name { Unique; Required; MinLength 2; MaxLength 64;}
+        LongString Description;
 
         Reference Hotel;
         Reference RoomType;
