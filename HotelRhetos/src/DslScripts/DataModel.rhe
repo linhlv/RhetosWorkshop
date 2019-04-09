@@ -7,16 +7,19 @@ Module HotelRhetos
     }
 
     Entity Room
-    {
+    {        
+        TrackedRecord;
         ShortString Name { Unique; Required; MinLength 2; MaxLength 64;}
         LongString Description;
 
         Reference Hotel;
         Reference RoomType;
+
     }
 
     Entity RoomType
     {
+        TrackedRecord;
         ShortString Name { Unique; Required; MinLength 2; MaxLength 64;}
         Decimal Price;
     }
@@ -33,7 +36,60 @@ Module HotelRhetos
     {
         ShortString Name { Unique; Required; }
         Decimal Price;
+
+        ItemFilter ServiceNameDiamond 'sr => sr.Name.Contains("Diamond")';
+        InvalidData ServiceNameDiamond 'It is not allowed to enter misspelled word "Diamond". Please not use "Diamond" instead.';
+        ItemFilter LessThan1Use  'sr => repository.HotelRhetos.InvoiceItem.Subquery.Where(c => c.ServiceID == sr.ID).Count() < 1';
+        ItemFilter PriceGreaterThan40Dollar  'sr => sr.Price > 40';
+
+        ComposableFilterBy ServiceNameContainsDiamond '(query, repository, parameter) =>
+            {
+                return query.Where(sr => sr.Name.Contains("Diamond"));
+            }';
+        InvalidData ServiceNameContainsDiamond 'It is not allowed to enter misspelled word "Diamond". Please use "Diamond" instead.';
+        
+        ComposableFilterBy ServiceNameContainsWord'(query, repository, parameter) =>
+            {                
+                if(parameter == null || parameter.Word == null)
+                {
+                    return query;
+                }
+                
+                else
+                {
+                    return query.Where(sr => sr.Name.Contains(parameter.Word));
+                }
+            }';
+        FilterBy ServiceNameContainsDiamond2 '(repository, parameter) =>
+            {
+                return new[]
+                {
+                    new Service{Name ="Service13"},
+                    new Service{Name ="Service14"},
+                    new Service{Name ="Service15"},
+                    new Service{Name ="Service16"},
+                    new Service{Name ="Service17"},
+                    new Service{Name ="Service18"},
+                    new Service{Name ="Service19"},
+                    new Service{Name ="Service20"}
+                };
+            }';   
     }
+    Parameter ServiceNameContainsDiamond
+    {
+    }
+
+    Parameter ServiceNameContainsDiamond2
+    {
+    }
+
+    Parameter ServiceNameContainsWord
+    {
+        ShortString Word;
+    }
+
+
+
 
     Entity Reservations
     {

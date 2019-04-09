@@ -1,0 +1,44 @@
+Module HotelRhetos
+{
+    
+    Action GeneratedService
+        '(parameter, repository, userInfo) =>
+        {
+            var countService = repository.HotelRhetos.Service.Query().Count();
+
+            for (int i = 1; i <= parameter.NumberOfServices; i++)
+            {
+                var newService = new HotelRhetos.Service
+                {
+                    Name = "Service" + countService + i,
+                    Price = (Decimal)(countService * i * 1.6)
+                };
+                repository.HotelRhetos.Service.Insert(newService);
+            }
+		
+        }'
+    {
+        Integer NumberOfServices;
+    }
+
+    SqlView ServiceView2 'SELECT Name FROM HotelRhetos.Service'
+    {
+        AutoDetectSqlDependencies;
+    }
+
+    SqlObject ServiceView1
+        'CREATE VIEW HotelRhetos.NameServiceView AS SELECT ID, Name,Price FROM HotelRhetos.Service'
+        'DROP VIEW HotelRhetos.NameServiceView'
+    {
+        SqlDependsOn HotelRhetos.Service;
+    }
+
+    SqlQueryable NameServices
+        "SELECT ID, Name, Price, Price*1.5 AS Price1 FROM HotelRhetos.NameServiceView"
+    {
+        Extends HotelRhetos.Service;
+        Decimal Price;
+        Decimal Price1;
+        SqlDependsOnSqlObject HotelRhetos.ServiceView1;
+    }
+}

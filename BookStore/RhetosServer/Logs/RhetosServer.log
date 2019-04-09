@@ -1129,3 +1129,13 @@ Info:
    at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc& rpc)
    at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)
 Info: 
+2019-03-26 15:18:12.1804|INFO|ProcessingEngine|Command failed: ReadCommandInfo BookStore.Book records, filters: Bookstore.ComplexSearch, Code Contains "2". Rhetos.ClientException: Unknown filter type 'Bookstore.ComplexSearch'.
+   at Rhetos.Dom.DefaultConcepts.GenericFilterHelper.GetSpecificFilterType(String filterName) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dom.DefaultConcepts\GenericFilterHelper.cs:line 505
+   at Rhetos.Dom.DefaultConcepts.GenericFilterHelper.ToFilterObjects(IEnumerable`1 genericFilter) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dom.DefaultConcepts\GenericFilterHelper.cs:line 537
+   at Rhetos.Dom.DefaultConcepts.GenericRepository`1.ExecuteGenericFilter(IEnumerable`1 genericFilter, Boolean preferQuery, IEnumerable`1 items) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dom.DefaultConcepts\GenericRepository.cs:line 377
+   at Rhetos.Dom.DefaultConcepts.GenericRepository`1.Read(Object parameter, Type parameterType, Boolean preferQuery) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dom.DefaultConcepts\GenericRepository.cs:line 305
+   at Rhetos.Dom.DefaultConcepts.ReadableRepositoryExtensions.Read[TEntity,TParameter](IReadableRepository`1 repository, TParameter parameter, Boolean preferQuery) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Dom.DefaultConcepts.Interfaces\IReadableRepository.cs:line 74
+   at Rhetos.Processing.DefaultCommands.ServerCommandsUtility.ExecuteReadCommand(ReadCommandInfo commandInfo, GenericRepository`1 genericRepository) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Processing.DefaultCommands\ServerCommandsUtility.cs:line 129
+   at Rhetos.Processing.DefaultCommands.ReadCommand.Execute(ICommandInfo commandInfo) in C:\My Projects\Rhetos\CommonConcepts\Plugins\Rhetos.Processing.DefaultCommands\ReadCommand.cs:line 57
+   at Rhetos.Processing.ProcessingEngine.ExecuteInner(IList`1 commands, Guid executionId) in C:\My Projects\Rhetos\Source\Rhetos.Processing\ProcessingEngine.cs:line 145
+Info: 
